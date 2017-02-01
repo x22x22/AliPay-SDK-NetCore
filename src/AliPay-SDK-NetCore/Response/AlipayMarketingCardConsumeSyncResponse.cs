@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -12,6 +13,7 @@ namespace Aop.Api.Response
         /// 外部卡号
         /// </summary>
         [XmlElement("external_card_no")]
+		[JsonProperty("external_card_no", NullValueHandling = NullValueHandling.Ignore)]
         public string ExternalCardNo { get; set; }
     }
 }

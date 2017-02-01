@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -13,12 +14,14 @@ namespace Aop.Api.Response
         /// xxxx
         /// </summary>
         [XmlElement("dddd")]
+		[JsonProperty("dddd", NullValueHandling = NullValueHandling.Ignore)]
         public XXXXsdasdasd Dddd { get; set; }
 
         /// <summary>
         /// ccc
         /// </summary>
         [XmlElement("sss")]
+		[JsonProperty("sss", NullValueHandling = NullValueHandling.Ignore)]
         public string Sss { get; set; }
     }
 }

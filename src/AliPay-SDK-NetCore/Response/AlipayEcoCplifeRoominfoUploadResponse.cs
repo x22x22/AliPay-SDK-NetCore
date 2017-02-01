@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -14,6 +15,7 @@ namespace Aop.Api.Response
         /// 业主所在物业小区ID(支付宝平台唯一小区ID标示)
         /// </summary>
         [XmlElement("community_id")]
+		[JsonProperty("community_id", NullValueHandling = NullValueHandling.Ignore)]
         public string CommunityId { get; set; }
 
         /// <summary>

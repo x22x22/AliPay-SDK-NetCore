@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -14,6 +15,7 @@ namespace Aop.Api.Response
         /// 活动id
         /// </summary>
         [XmlElement("activity_id")]
+		[JsonProperty("activity_id", NullValueHandling = NullValueHandling.Ignore)]
         public string ActivityId { get; set; }
 
         /// <summary>
@@ -27,6 +29,7 @@ namespace Aop.Api.Response
         /// 单品批次数
         /// </summary>
         [XmlElement("batch_num")]
+		[JsonProperty("batch_num", NullValueHandling = NullValueHandling.Ignore)]
         public string BatchNum { get; set; }
     }
 }

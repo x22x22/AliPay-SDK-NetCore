@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -21,6 +22,7 @@ namespace Aop.Api.Response
         /// 唯一标识这次请求
         /// </summary>
         [XmlElement("request_id")]
+		[JsonProperty("request_id", NullValueHandling = NullValueHandling.Ignore)]
         public string RequestId { get; set; }
     }
 }

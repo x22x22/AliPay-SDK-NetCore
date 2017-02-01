@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -21,6 +22,7 @@ namespace Aop.Api.Response
         /// 总数量
         /// </summary>
         [XmlElement("total_number")]
+		[JsonProperty("total_number", NullValueHandling = NullValueHandling.Ignore)]
         public string TotalNumber { get; set; }
     }
 }

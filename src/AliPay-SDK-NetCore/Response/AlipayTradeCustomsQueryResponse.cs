@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -14,6 +15,7 @@ namespace Aop.Api.Response
         /// 不存在记录的报关请求号。多个值用逗号分隔，单次最多10个;每个报关请求号String(32)
         /// </summary>
         [XmlElement("not_found")]
+		[JsonProperty("not_found", NullValueHandling = NullValueHandling.Ignore)]
         public string NotFound { get; set; }
 
         /// <summary>

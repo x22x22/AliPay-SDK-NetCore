@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -12,6 +13,7 @@ namespace Aop.Api.Response
         /// 生成的带参推广短链接
         /// </summary>
         [XmlElement("shortlink")]
+		[JsonProperty("shortlink", NullValueHandling = NullValueHandling.Ignore)]
         public string Shortlink { get; set; }
     }
 }

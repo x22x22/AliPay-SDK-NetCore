@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -14,12 +15,14 @@ namespace Aop.Api.Response
         /// 当前分页数
         /// </summary>
         [XmlElement("current_page")]
+		[JsonProperty("current_page", NullValueHandling = NullValueHandling.Ignore)]
         public long CurrentPage { get; set; }
 
         /// <summary>
         /// 每页分页条数
         /// </summary>
         [XmlElement("items_per_page")]
+		[JsonProperty("items_per_page", NullValueHandling = NullValueHandling.Ignore)]
         public long ItemsPerPage { get; set; }
 
         /// <summary>
@@ -33,12 +36,14 @@ namespace Aop.Api.Response
         /// 总员工数
         /// </summary>
         [XmlElement("total_count")]
+		[JsonProperty("total_count", NullValueHandling = NullValueHandling.Ignore)]
         public long TotalCount { get; set; }
 
         /// <summary>
         /// 总分页数
         /// </summary>
         [XmlElement("total_pages")]
+		[JsonProperty("total_pages", NullValueHandling = NullValueHandling.Ignore)]
         public long TotalPages { get; set; }
     }
 }

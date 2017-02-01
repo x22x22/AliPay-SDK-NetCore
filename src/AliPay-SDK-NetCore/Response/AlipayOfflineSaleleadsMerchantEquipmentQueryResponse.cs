@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -14,12 +15,14 @@ namespace Aop.Api.Response
         /// 商户名称
         /// </summary>
         [XmlElement("merchant_name")]
+		[JsonProperty("merchant_name", NullValueHandling = NullValueHandling.Ignore)]
         public string MerchantName { get; set; }
 
         /// <summary>
         /// 商户PID
         /// </summary>
         [XmlElement("merchant_pid")]
+		[JsonProperty("merchant_pid", NullValueHandling = NullValueHandling.Ignore)]
         public string MerchantPid { get; set; }
 
         /// <summary>

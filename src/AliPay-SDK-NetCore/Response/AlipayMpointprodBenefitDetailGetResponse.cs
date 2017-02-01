@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -21,12 +22,14 @@ namespace Aop.Api.Response
         /// 响应码
         /// </summary>
         [XmlElement("code")]
+		[JsonProperty("code", NullValueHandling = NullValueHandling.Ignore)]
         public new string Code { get; set; }
 
         /// <summary>
         /// 响应描述
         /// </summary>
         [XmlElement("msg")]
+		[JsonProperty("msg", NullValueHandling = NullValueHandling.Ignore)]
         public new string Msg { get; set; }
     }
 }

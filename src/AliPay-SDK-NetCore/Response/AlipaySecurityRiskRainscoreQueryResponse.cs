@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -28,6 +29,7 @@ namespace Aop.Api.Response
         /// 风险评分，范围为[0,100]，评分越高风险越大
         /// </summary>
         [XmlElement("score")]
+		[JsonProperty("score", NullValueHandling = NullValueHandling.Ignore)]
         public string Score { get; set; }
     }
 }

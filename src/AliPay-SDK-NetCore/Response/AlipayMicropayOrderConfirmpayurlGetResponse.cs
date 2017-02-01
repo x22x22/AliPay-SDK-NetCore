@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Response
         /// SinglePayDetail信息
         /// </summary>
         [XmlElement("single_pay_detail")]
+		[JsonProperty("single_pay_detail", NullValueHandling = NullValueHandling.Ignore)]
         public SinglePayDetail SinglePayDetail { get; set; }
     }
 }

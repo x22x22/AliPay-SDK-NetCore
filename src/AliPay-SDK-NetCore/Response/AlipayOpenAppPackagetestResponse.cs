@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -12,6 +13,7 @@ namespace Aop.Api.Response
         /// testtest
         /// </summary>
         [XmlElement("testtesttesttest")]
+		[JsonProperty("testtesttesttest", NullValueHandling = NullValueHandling.Ignore)]
         public string Testtesttesttest { get; set; }
     }
 }

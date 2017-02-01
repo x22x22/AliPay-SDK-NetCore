@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -12,6 +13,7 @@ namespace Aop.Api.Response
         /// 手艺人id
         /// </summary>
         [XmlElement("craftsman_id")]
+		[JsonProperty("craftsman_id", NullValueHandling = NullValueHandling.Ignore)]
         public string CraftsmanId { get; set; }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -14,18 +15,21 @@ namespace Aop.Api.Response
         /// 结果码
         /// </summary>
         [XmlElement("code")]
+		[JsonProperty("code", NullValueHandling = NullValueHandling.Ignore)]
         public new string Code { get; set; }
 
         /// <summary>
         /// 菜单唯一标识
         /// </summary>
         [XmlElement("menu_key")]
+		[JsonProperty("menu_key", NullValueHandling = NullValueHandling.Ignore)]
         public string MenuKey { get; set; }
 
         /// <summary>
         /// 结果描述
         /// </summary>
         [XmlElement("msg")]
+		[JsonProperty("msg", NullValueHandling = NullValueHandling.Ignore)]
         public new string Msg { get; set; }
 
         /// <summary>
@@ -39,6 +43,7 @@ namespace Aop.Api.Response
         /// 备注信息
         /// </summary>
         [XmlElement("remark")]
+		[JsonProperty("remark", NullValueHandling = NullValueHandling.Ignore)]
         public string Remark { get; set; }
     }
 }

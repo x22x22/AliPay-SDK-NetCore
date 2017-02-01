@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Response
         /// 返回结果码，如200，标识成功
         /// </summary>
         [XmlElement("code")]
+		[JsonProperty("code", NullValueHandling = NullValueHandling.Ignore)]
         public new string Code { get; set; }
 
         /// <summary>

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Security.Cryptography;
-using System.IO;
+using System.IO;using Newtonsoft.Json;
+
 namespace Aop.Api.Util
 {
     class AlipayEncrypt

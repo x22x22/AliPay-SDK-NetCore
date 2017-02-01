@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -12,6 +13,7 @@ namespace Aop.Api.Response
         /// 集点变更流水号
         /// </summary>
         [XmlElement("point_log_no")]
+		[JsonProperty("point_log_no", NullValueHandling = NullValueHandling.Ignore)]
         public string PointLogNo { get; set; }
     }
 }

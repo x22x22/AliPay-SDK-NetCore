@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Response
         /// 芝麻信用对于每一次请求返回的业务号。后续可以通过此业务号进行对账
         /// </summary>
         [XmlElement("biz_no")]
+		[JsonProperty("biz_no", NullValueHandling = NullValueHandling.Ignore)]
         public string BizNo { get; set; }
 
         /// <summary>

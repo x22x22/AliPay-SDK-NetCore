@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -12,6 +13,7 @@ namespace Aop.Api.Response
         /// 支付宝卡模板ID
         /// </summary>
         [XmlElement("template_id")]
+		[JsonProperty("template_id", NullValueHandling = NullValueHandling.Ignore)]
         public string TemplateId { get; set; }
     }
 }

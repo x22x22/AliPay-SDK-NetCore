@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -12,6 +13,7 @@ namespace Aop.Api.Response
         /// 商户的签约状态
         /// </summary>
         [XmlElement("sign_status")]
+		[JsonProperty("sign_status", NullValueHandling = NullValueHandling.Ignore)]
         public string SignStatus { get; set; }
     }
 }

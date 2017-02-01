@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -20,12 +21,14 @@ namespace Aop.Api.Response
         /// 返回码.
         /// </summary>
         [XmlElement("error_code")]
+		[JsonProperty("error_code", NullValueHandling = NullValueHandling.Ignore)]
         public string ErrorCode { get; set; }
 
         /// <summary>
         /// 是否发码成功的标识。
         /// </summary>
         [XmlElement("success")]
+		[JsonProperty("success", NullValueHandling = NullValueHandling.Ignore)]
         public bool Success { get; set; }
     }
 }

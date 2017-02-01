@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api
 {
@@ -17,6 +18,7 @@ namespace Aop.Api
         /// 对应 ErrCode
         /// </summary>
         [XmlElement("code")]
+		[JsonProperty("code", NullValueHandling = NullValueHandling.Ignore)]
         public string Code
         {
             get { return code; }
@@ -28,6 +30,7 @@ namespace Aop.Api
         /// 对应 ErrMsg
         /// </summary>
         [XmlElement("msg")]
+		[JsonProperty("msg", NullValueHandling = NullValueHandling.Ignore)]
         public string Msg
         {
             get { return msg; }
@@ -39,6 +42,7 @@ namespace Aop.Api
         /// 对应 SubErrCode
         /// </summary>
         [XmlElement("sub_code")]
+		[JsonProperty("sub_code", NullValueHandling = NullValueHandling.Ignore)]
         public string SubCode
         {
             get { return subCode; }
@@ -50,6 +54,7 @@ namespace Aop.Api
         /// 对应 SubErrMsg
         /// </summary>
         [XmlElement("sub_msg")]
+		[JsonProperty("sub_msg", NullValueHandling = NullValueHandling.Ignore)]
         public string SubMsg
         {
             get { return subMsg; }

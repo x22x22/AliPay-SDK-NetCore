@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -12,6 +13,7 @@ namespace Aop.Api.Response
         /// 支付宝交易号
         /// </summary>
         [XmlElement("trade_no")]
+		[JsonProperty("trade_no", NullValueHandling = NullValueHandling.Ignore)]
         public string TradeNo { get; set; }
     }
 }

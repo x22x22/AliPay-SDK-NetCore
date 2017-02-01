@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -14,6 +15,7 @@ namespace Aop.Api.Response
         /// 数据量
         /// </summary>
         [XmlElement("count")]
+		[JsonProperty("count", NullValueHandling = NullValueHandling.Ignore)]
         public string Count { get; set; }
 
         /// <summary>

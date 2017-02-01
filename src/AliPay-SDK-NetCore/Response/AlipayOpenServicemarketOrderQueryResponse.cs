@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -14,12 +15,14 @@ namespace Aop.Api.Response
         /// 订购服务商品ID
         /// </summary>
         [XmlElement("commodity_id")]
+		[JsonProperty("commodity_id", NullValueHandling = NullValueHandling.Ignore)]
         public string CommodityId { get; set; }
 
         /// <summary>
         /// 当前查询页（本接口支持最多查询100条记录）
         /// </summary>
         [XmlElement("current_page")]
+		[JsonProperty("current_page", NullValueHandling = NullValueHandling.Ignore)]
         public long CurrentPage { get; set; }
 
         /// <summary>
@@ -33,12 +36,14 @@ namespace Aop.Api.Response
         /// MERCHANT_ORDED（待服务商接单）
         /// </summary>
         [XmlElement("status")]
+		[JsonProperty("status", NullValueHandling = NullValueHandling.Ignore)]
         public string Status { get; set; }
 
         /// <summary>
         /// 总记录数
         /// </summary>
         [XmlElement("total_size")]
+		[JsonProperty("total_size", NullValueHandling = NullValueHandling.Ignore)]
         public long TotalSize { get; set; }
     }
 }

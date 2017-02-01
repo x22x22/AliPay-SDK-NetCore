@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using Aop.Api.Response;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Request
 {

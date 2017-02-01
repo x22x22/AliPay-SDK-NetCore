@@ -1,4 +1,5 @@
-﻿
+﻿using Newtonsoft.Json;
+
 namespace Aop.Api.Util
 {
     /// <summary>

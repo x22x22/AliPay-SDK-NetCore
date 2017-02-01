@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -12,6 +13,7 @@ namespace Aop.Api.Response
         /// 授权给第三方渠道商的服务窗名称
         /// </summary>
         [XmlElement("public_name")]
+		[JsonProperty("public_name", NullValueHandling = NullValueHandling.Ignore)]
         public string PublicName { get; set; }
     }
 }

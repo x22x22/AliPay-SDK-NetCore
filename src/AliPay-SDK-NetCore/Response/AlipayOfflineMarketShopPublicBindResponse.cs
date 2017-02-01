@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -20,12 +21,14 @@ namespace Aop.Api.Response
         /// 数字类型，标示总的绑定错误总数
         /// </summary>
         [XmlElement("total_error")]
+		[JsonProperty("total_error", NullValueHandling = NullValueHandling.Ignore)]
         public long TotalError { get; set; }
 
         /// <summary>
         /// 绑定店铺总成功数
         /// </summary>
         [XmlElement("total_success")]
+		[JsonProperty("total_success", NullValueHandling = NullValueHandling.Ignore)]
         public long TotalSuccess { get; set; }
     }
 }

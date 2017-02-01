@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -21,6 +22,7 @@ namespace Aop.Api.Response
         /// 该小区下已上传的房间总数
         /// </summary>
         [XmlElement("total_room_number")]
+		[JsonProperty("total_room_number", NullValueHandling = NullValueHandling.Ignore)]
         public long TotalRoomNumber { get; set; }
     }
 }

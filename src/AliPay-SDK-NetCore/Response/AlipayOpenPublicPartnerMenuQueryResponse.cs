@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -12,6 +13,7 @@ namespace Aop.Api.Response
         /// 服务窗菜单
         /// </summary>
         [XmlElement("public_menu")]
+		[JsonProperty("public_menu", NullValueHandling = NullValueHandling.Ignore)]
         public string PublicMenu { get; set; }
     }
 }

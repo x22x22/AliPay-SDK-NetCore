@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -12,6 +13,7 @@ namespace Aop.Api.Response
         /// 外部奖品ID
         /// </summary>
         [XmlElement("out_prize_id")]
+		[JsonProperty("out_prize_id", NullValueHandling = NullValueHandling.Ignore)]
         public string OutPrizeId { get; set; }
     }
 }

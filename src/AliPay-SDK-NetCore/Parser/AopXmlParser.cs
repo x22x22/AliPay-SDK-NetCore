@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using Aop.Api.Request;
 using Aop.Api.Util;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Parser
 {

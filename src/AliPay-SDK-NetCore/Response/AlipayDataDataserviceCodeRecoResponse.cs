@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Response
         /// 识别结果
         /// </summary>
         [XmlElement("result")]
+		[JsonProperty("result", NullValueHandling = NullValueHandling.Ignore)]
         public AlipayCodeRecoResult Result { get; set; }
     }
 }

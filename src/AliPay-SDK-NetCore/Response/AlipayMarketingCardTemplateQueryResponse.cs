@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -14,12 +15,14 @@ namespace Aop.Api.Response
         /// 业务卡号前缀，由商户自定义
         /// </summary>
         [XmlElement("biz_no_prefix")]
+		[JsonProperty("biz_no_prefix", NullValueHandling = NullValueHandling.Ignore)]
         public string BizNoPrefix { get; set; }
 
         /// <summary>
         /// 卡号长度
         /// </summary>
         [XmlElement("biz_no_suffix_len")]
+		[JsonProperty("biz_no_suffix_len", NullValueHandling = NullValueHandling.Ignore)]
         public string BizNoSuffixLen { get; set; }
 
         /// <summary>
@@ -33,6 +36,7 @@ namespace Aop.Api.Response
         /// 会员卡类型：  OUT_MEMBER_CARD：外部权益卡
         /// </summary>
         [XmlElement("card_type")]
+		[JsonProperty("card_type", NullValueHandling = NullValueHandling.Ignore)]
         public string CardType { get; set; }
 
         /// <summary>
@@ -53,6 +57,7 @@ namespace Aop.Api.Response
         /// 会员卡用户领卡配置，在门店等渠道露出领卡入口时，需要部署的商户领卡H5页面地址
         /// </summary>
         [XmlElement("open_card_conf")]
+		[JsonProperty("open_card_conf", NullValueHandling = NullValueHandling.Ignore)]
         public TemplateOpenCardConfDTO OpenCardConf { get; set; }
 
         /// <summary>
@@ -87,6 +92,7 @@ namespace Aop.Api.Response
         /// 模板样式信息(钱包展现效果)
         /// </summary>
         [XmlElement("template_style_info")]
+		[JsonProperty("template_style_info", NullValueHandling = NullValueHandling.Ignore)]
         public TemplateStyleInfoDTO TemplateStyleInfo { get; set; }
     }
 }

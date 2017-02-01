@@ -2,6 +2,7 @@ using System;
 using Aop.Api.Domain;
 using System.Collections.Generic;
 using Aop.Api.Response;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Request
 {

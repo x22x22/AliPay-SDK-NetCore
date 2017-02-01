@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
 using Aop.Api.Domain;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -42,6 +43,7 @@ namespace Aop.Api.Response
         /// sadasff
         /// </summary>
         [XmlElement("sdvsdv")]
+		[JsonProperty("sdvsdv", NullValueHandling = NullValueHandling.Ignore)]
         public string Sdvsdv { get; set; }
 
         /// <summary>

@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -12,12 +13,14 @@ namespace Aop.Api.Response
         /// JSON格式数组，每个对象表示一个门店某个具体日期的指标信息，KEY为指标代码，VALUE为该指标对应的值,各biz_type入参以及返回值的详细信息参见<a href="https://doc.open.alipay.com/doc2/detail.htm?spm=a219a.7629140.0.0.XQ4g6J&treeId=193&articleId=105186&docType=1#s6">快速接入</a>
         /// </summary>
         [XmlElement("indicator_infos")]
+		[JsonProperty("indicator_infos", NullValueHandling = NullValueHandling.Ignore)]
         public string IndicatorInfos { get; set; }
 
         /// <summary>
         /// 总条目数,供计算分页信息使用
         /// </summary>
         [XmlElement("total_size")]
+		[JsonProperty("total_size", NullValueHandling = NullValueHandling.Ignore)]
         public string TotalSize { get; set; }
     }
 }

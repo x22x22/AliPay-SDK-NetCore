@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Response
         /// 当前页码
         /// </summary>
         [XmlElement("current_pageno")]
+		[JsonProperty("current_pageno", NullValueHandling = NullValueHandling.Ignore)]
         public string CurrentPageno { get; set; }
 
         /// <summary>
@@ -26,6 +28,7 @@ namespace Aop.Api.Response
         /// 总页码数目
         /// </summary>
         [XmlElement("total_pageno")]
+		[JsonProperty("total_pageno", NullValueHandling = NullValueHandling.Ignore)]
         public string TotalPageno { get; set; }
     }
 }

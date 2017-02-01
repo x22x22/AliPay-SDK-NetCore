@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.IO;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Util
 {

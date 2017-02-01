@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Aop.Api.Util;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Request
 {
