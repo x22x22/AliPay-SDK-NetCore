@@ -145,27 +145,34 @@ namespace Aop.Api
             {
                 if (url.Contains("?"))
                 {
-                    url = url + "&" + WebUtils.BuildQuery(parameters,charset);
+                    url = url + "&" + WebUtils.BuildQuery(parameters, charset);
                 }
                 else
                 {
-                    url = url + "?" + WebUtils.BuildQuery(parameters,charset);
+                    url = url + "?" + WebUtils.BuildQuery(parameters, charset);
                 }
             }
 
             HttpWebRequest req = webUtils.GetWebRequest(url, "GET");
             req.ContentType = "application/x-www-form-urlencoded;charset=" + charset;
 
-            HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
+            var reqTask = req.GetResponseAsync();
+            reqTask.Wait();
+            HttpWebResponse rsp = (HttpWebResponse)reqTask.Result;
             if (rsp.StatusCode == HttpStatusCode.OK)
             {
                 if (rsp.ContentType.ToLower().Contains("text/plain"))
                 {
-                    Encoding encoding = Encoding.GetEncoding(rsp.CharacterSet);
-                    string body = webUtils.GetResponseAsString(rsp,encoding);
+                    //临时
+                    string contentType = rsp.ContentType;
+                    string charset = ((contentType.IndexOf("charset=utf-8", StringComparison.OrdinalIgnoreCase) > 0) ? "UTF-8" : "GBK");
+                    Encoding encoding = Encoding.GetEncoding(charset);
+                    string body = webUtils.GetResponseAsString(rsp, encoding);
                     IAopParser<AlipayMobilePublicMultiMediaDownloadResponse> tp = new AopJsonParser<AlipayMobilePublicMultiMediaDownloadResponse>();
                     response = tp.Parse(body, charset);
-                }else{
+                }
+                else
+                {
                     GetResponseAsStream(outStream, rsp);
                     response = new AlipayMobilePublicMultiMediaDownloadResponse();
                 }
@@ -197,21 +204,20 @@ namespace Aop.Api
                 //stream.CopyTo(outStream);
                 int length = Convert.ToInt32(rsp.ContentLength);
                 byte[] buffer = new byte[length];
-                int rc = 0; 
-                while ((rc=stream.Read(buffer, 0, length)) > 0)
+                int rc = 0;
+                while ((rc = stream.Read(buffer, 0, length)) > 0)
                 {
                     outStream.Write(buffer, 0, rc);
                 }
                 outStream.Flush();
-                outStream.Close();
-                
+                outStream.Dispose();
             }
             finally
             {
                 // 释放资源
-                if (reader != null) reader.Close();
-                if (stream != null) stream.Close();
-                if (rsp != null) rsp.Close();
+                if (reader != null) reader.Dispose();
+                if (stream != null) stream.Dispose();
+                if (rsp != null) rsp.Dispose();
             }
         }
 

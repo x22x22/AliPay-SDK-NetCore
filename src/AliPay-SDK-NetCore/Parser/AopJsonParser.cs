@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Xml.Serialization;
-using Jayrock.Json.Conversion;
 using Aop.Api.Request;
 using Aop.Api.Util;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Parser
 {
@@ -17,29 +17,40 @@ namespace Aop.Api.Parser
         private static readonly Dictionary<string, Dictionary<string, AopAttribute>> attrs = new Dictionary<string, Dictionary<string, AopAttribute>>();
 
         #region IAopParser<T> Members
-        public T Parse(string body,string charset)
+        public T Parse(string body, string charset)
         {
             T rsp = null;
 
-            IDictionary json = JsonConvert.Import(body) as IDictionary;
+            IDictionary json = JsonConvert.DeserializeObject<IDictionary>(body);
             if (json != null)
             {
                 IDictionary data = null;
-
+                //记录下面的有效节点
+                string validKey = null;
                 // 忽略根节点的名称
                 foreach (object key in json.Keys)
                 {
-                    data = json[key] as IDictionary;
-                    if (data != null && data.Count > 0)
+                    try
                     {
-                        break;
+                        JsonConvert.DeserializeObject<IDictionary>(json[key] + "");
+                        data = new Dictionary<string, string>();
+                        data.Add(key, json[key] + "");
+                        if (data != null && data.Count > 0)
+                        {
+                            validKey = key + "";
+                            break;
+                        }
                     }
+                    catch (Exception)
+                    {
+                        continue;
+                    }
+
                 }
 
                 if (data != null)
                 {
-                    IAopReader reader = new AopJsonReader(data);
-                    rsp = (T)AopJsonConvert(reader, typeof(T));
+                    rsp = JsonConvert.DeserializeObject<T>(data[validKey] + "");
                 }
             }
 
@@ -123,7 +134,7 @@ namespace Aop.Api.Parser
                 }
 
                 // 获取属性类型
-                if (pi.PropertyType.IsGenericType)
+                if (pi.PropertyType.IsGenericParameter)
                 {
                     Type[] types = pi.PropertyType.GetGenericArguments();
                     ta.ListType = types[0];
@@ -206,7 +217,7 @@ namespace Aop.Api.Parser
 
         private static string GetSign(string body)
         {
-            IDictionary json = JsonConvert.Import(body) as IDictionary;
+            IDictionary json = JsonConvert.DeserializeObject<IDictionary>(body);
             Console.WriteLine(json);
             return (string)json["sign"];
         }

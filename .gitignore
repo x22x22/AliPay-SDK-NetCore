@@ -167,3 +167,4 @@ dist
 wwwroot
 /src/XPay.MVC/wwwroot
 packages
+*.pem

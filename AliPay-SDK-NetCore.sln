@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AliPay-SDK-NetCore", "src\AliPay-SDK-NetCore\AliPay-SDK-NetCore.xproj", "{02F412B3-A113-4A0C-A9BD-169B08EAAA65}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "TestLibrary", "src\TestLibrary\TestLibrary.xproj", "{60E9A3F0-8B81-415C-8E48-4903CCA1D9FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,11 +24,16 @@ Global
 		{02F412B3-A113-4A0C-A9BD-169B08EAAA65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02F412B3-A113-4A0C-A9BD-169B08EAAA65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02F412B3-A113-4A0C-A9BD-169B08EAAA65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60E9A3F0-8B81-415C-8E48-4903CCA1D9FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60E9A3F0-8B81-415C-8E48-4903CCA1D9FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60E9A3F0-8B81-415C-8E48-4903CCA1D9FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60E9A3F0-8B81-415C-8E48-4903CCA1D9FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{02F412B3-A113-4A0C-A9BD-169B08EAAA65} = {7B181DDF-84C6-48BD-B013-2A2CAEFE3025}
+		{60E9A3F0-8B81-415C-8E48-4903CCA1D9FF} = {7B181DDF-84C6-48BD-B013-2A2CAEFE3025}
 	EndGlobalSection
 EndGlobal

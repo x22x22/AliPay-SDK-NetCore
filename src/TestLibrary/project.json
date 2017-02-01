@@ -1,0 +1,25 @@
+﻿{
+  "version": "0.0.0-1",
+  "testRunner": "mstest",
+  "Library": { "target": "project" },
+  "dependencies": {
+    "AliPay-SDK-NetCore": "0.0.0-1",
+    "dotnet-test-mstest": "1.1.2-preview",
+    "MSTest.TestFramework": "1.0.8-rc2",
+    "Serilog": "2.4.0-dev-00769",
+    "Serilog.Sinks.Literate": "2.1.0-dev-00034",
+    "Serilog.Sinks.RollingFile": "3.3.0"
+  },
+
+  "frameworks": {
+    "netcoreapp1.1": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.1.0"
+        }
+      },
+      "imports": "dnxcore50"
+    }
+  }
+}

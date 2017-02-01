@@ -18,12 +18,12 @@ namespace Aop.Api.Response
         /// 结果码
         /// </summary>
         [XmlElement("code")]
-        public string Code { get; set; }
+        public new string Code { get; set; }
 
         /// <summary>
         /// 结果信息
         /// </summary>
         [XmlElement("msg")]
-        public string Msg { get; set; }
+        public new string Msg { get; set; }
     }
 }

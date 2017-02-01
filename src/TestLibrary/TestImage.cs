@@ -63,7 +63,7 @@ namespace Aop.Api
 
         private static string GetCurrentPath()
         {
-            string basePath = System.IO.Directory.GetParent(System.Environment.CurrentDirectory).Parent.FullName;
+            string basePath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
             return basePath + "/Test/";
         }
     }

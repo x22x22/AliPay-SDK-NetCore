@@ -1,10 +1,10 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Text;
 using Aop.Api.Util;
 using Aop.Api.Request;
 using Aop.Api.Response;
-using Jayrock.Json;
+using System.IO;
 
 namespace Aop.Api.Test
 {
@@ -13,16 +13,16 @@ namespace Aop.Api.Test
         [STAThread]
         //static void Main()
         //{
-        //    // ¹«ÖÚºÅ²Ëµ¥²éÑ¯
+        //    // å…¬ä¼—å·èœå•æŸ¥è¯¢
         //    //MenuGet();
 
-        //    // ¹«ÖÚºÅÍ¨ÖªÏûÏ¢Ç©ÃûÑéÖ¤
+        //    // å…¬ä¼—å·é€šçŸ¥æ¶ˆæ¯ç­¾åéªŒè¯
         //    //CheckSign();
 
-        //    // ¹«ÖÚºÅÑéÇ©&½âÃÜ
+        //    // å…¬ä¼—å·éªŒç­¾&è§£å¯†
         //    CheckSignAndDecrypt();
 
-        //    // ¹«ÖÚºÅ¼ÓÃÜ&¼ÓÇ©
+        //    // å…¬ä¼—å·åŠ å¯†&åŠ ç­¾
         //    EncryptAndSign();
         //}
 
@@ -31,11 +31,11 @@ namespace Aop.Api.Test
             IDictionary<string, string> paramsMap = new Dictionary<string, string>();
             paramsMap.Add("appId", "2013092500031084");
             string privateKeyPem = GetCurrentPath() + "aop-sandbox-RSA-private-c#.pem";
-            string sign = AlipaySignature.RSASign(paramsMap, privateKeyPem, null,"RSA");
+            string sign = AlipaySignature.RSASign(paramsMap, privateKeyPem, null,"RSA2");
             paramsMap.Add("sign", sign);
             string publicKey = GetCurrentPath() + "public-key.pem";
             bool checkSign = AlipaySignature.RSACheckV2(paramsMap, publicKey);
-            System.Console.Write("---------¹«ÖÚºÅÍ¨ÖªÏûÏ¢Ç©ÃûÑéÖ¤--------" + "\n\r");
+            System.Console.Write("---------å…¬ä¼—å·é€šçŸ¥æ¶ˆæ¯ç­¾åéªŒè¯--------" + "\n\r");
             System.Console.Write("checkSign:" + checkSign + "\n\r");
         }
 
@@ -44,20 +44,20 @@ namespace Aop.Api.Test
             IAopClient client = GetAlipayClient();
             //AlipayMobilePublicMenuGetRequest req = new AlipayMobilePublicMenuGetRequest();
             //AlipayMobilePublicMenuGetResponse res = client.Execute(req);
-            System.Console.Write("-------------¹«ÖÚºÅ²Ëµ¥²éÑ¯-------------" + "\n\r");
+            System.Console.Write("-------------å…¬ä¼—å·èœå•æŸ¥è¯¢-------------" + "\n\r");
            // System.Console.Write("Body:" + res.Body + "\n\r");
         }
 
         private static IAopClient GetAlipayClient()
         {
-            //Ö§¸¶±¦Íø¹ØµØÖ·
-            // -----É³ÏäµØÖ·-----
+            //æ”¯ä»˜å®ç½‘å…³åœ°å€
+            // -----æ²™ç®±åœ°å€-----
             string serverUrl = "http://openapi.alipaydev.com/gateway.do";
-            // -----ÏßÉÏµØÖ·-----
+            // -----çº¿ä¸Šåœ°å€-----
             // string serverUrl = "https://openapi.alipay.com/gateway.do";
-            //Ó¦ÓÃID
+            //åº”ç”¨ID
             string appId = "2013092500031084";
-            //ÉÌ»§Ë½Ô¿
+            //å•†æˆ·ç§é’¥
             string privateKeyPem = GetCurrentPath() + "aop-sandbox-RSA-private-c#.pem";
 
             IAopClient client = new DefaultAopClient(serverUrl, appId, privateKeyPem);
@@ -67,42 +67,42 @@ namespace Aop.Api.Test
 
         private static string GetCurrentPath()
         {
-            string basePath = System.IO.Directory.GetParent(System.Environment.CurrentDirectory).Parent.FullName;
+            string basePath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
             return basePath + "/Test/";
         }
 
         public static void CheckSignAndDecrypt()
         {
-            // ²ÎÊı¹¹½¨
+            // å‚æ•°æ„å»º
             string charset = "UTF-8";
-            string bizContent = "<XML><AppId><![CDATA[2013082200024893]]></AppId><FromUserId><![CDATA[2088102122485786]]></FromUserId><CreateTime>1377228401913</CreateTime><MsgType><![CDATA[click]]></MsgType><EventType><![CDATA[event]]></EventType><ActionParam><![CDATA[authentication]]></ActionParam><AgreementId><![CDATA[201308220000000994]]></AgreementId><AccountNo><![CDATA[null]]></AccountNo><UserInfo><![CDATA[{\"logon_id\":\"15858179811\",\"user_name\":\"Ğíµ©»Ô\"}]]></UserInfo></XML>";
+            string bizContent = "<XML><AppId><![CDATA[2013082200024893]]></AppId><FromUserId><![CDATA[2088102122485786]]></FromUserId><CreateTime>1377228401913</CreateTime><MsgType><![CDATA[click]]></MsgType><EventType><![CDATA[event]]></EventType><ActionParam><![CDATA[authentication]]></ActionParam><AgreementId><![CDATA[201308220000000994]]></AgreementId><AccountNo><![CDATA[null]]></AccountNo><UserInfo><![CDATA[{\"logon_id\":\"15858179811\",\"user_name\":\"è®¸æ—¦è¾‰\"}]]></UserInfo></XML>";
             string publicKeyPem = GetCurrentPath() + "public-key.pem";
             string privateKeyPem = GetCurrentPath() + "aop-sandbox-RSA-private-c#.pem";
             IDictionary<string, string> paramsMap = new Dictionary<string, string>();
             paramsMap.Add("biz_content", AlipaySignature.RSAEncrypt(bizContent, publicKeyPem, charset));
             paramsMap.Add("charset", charset);
             paramsMap.Add("service", "alipay.mobile.public.message.notify");
-            paramsMap.Add("sign_type", "RSA");
-            paramsMap.Add("sign", AlipaySignature.RSASign(paramsMap, privateKeyPem,null,"RSA"));
+            paramsMap.Add("sign_type", "RSA2");
+            paramsMap.Add("sign", AlipaySignature.RSASign(paramsMap, privateKeyPem,null,"RSA2"));
 
-            // ÑéÇ©&½âÃÜ
+            // éªŒç­¾&è§£å¯†
             string resultContent = AlipaySignature.CheckSignAndDecrypt(paramsMap, publicKeyPem, privateKeyPem, true, true);
             System.Console.Write("resultContent=" + resultContent+ "\n\r");
         }
 
         public static void EncryptAndSign()
         {
-            // ²ÎÊı¹¹½¨
+            // å‚æ•°æ„å»º
             string bizContent = "<XML><ToUserId><![CDATA[2088102122494786]]></ToUserId><AppId><![CDATA[2013111100036093]]></AppId><AgreementId><![CDATA[20131111000001895078]]></AgreementId>"
                             + "<CreateTime>12334349884</CreateTime>"
                             + "<MsgType><![CDATA[image-text]]></MsgType>"
                             + "<ArticleCount>1</ArticleCount>"
                             + "<Articles>"
                             + "<Item>"
-                            + "<Title><![CDATA[[»Ø¸´²âÊÔ¼ÓÃÜ½âÃÜ]]></Title>"
-                            + "<Desc><![CDATA[²âÊÔ¼ÓÃÜ½âÃÜ]]></Desc>"
+                            + "<Title><![CDATA[[å›å¤æµ‹è¯•åŠ å¯†è§£å¯†]]></Title>"
+                            + "<Desc><![CDATA[æµ‹è¯•åŠ å¯†è§£å¯†]]></Desc>"
                             + "<Url><![CDATA[http://m.taobao.com]]></Url>"
-                            + "<ActionName><![CDATA[Á¢¼´Ç°Íù]]></ActionName>"
+                            + "<ActionName><![CDATA[ç«‹å³å‰å¾€]]></ActionName>"
                             + "</Item>"
                             + "</Articles>" + "<Push><![CDATA[false]]></Push>" + "</XML>";
             string publicKeyPem = GetCurrentPath() + "public-key.pem";

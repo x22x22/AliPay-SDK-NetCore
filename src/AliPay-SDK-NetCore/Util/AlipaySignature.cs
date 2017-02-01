@@ -130,7 +130,7 @@ namespace Aop.Api.Util
                 }
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new AopException("您使用的私钥格式错误，请检查RSA私钥配置" + ",charset = " + charset);
             }
@@ -159,7 +159,7 @@ namespace Aop.Api.Util
             return RSACheckContent(signContent, sign, publicKeyPem, DEFAULT_CHARSET, "RSA");
         }
 
-	public static bool RSACheckV1(IDictionary<string, string> parameters, string publicKeyPem, string charset, string signType, bool keyFromFile)
+        public static bool RSACheckV1(IDictionary<string, string> parameters, string publicKeyPem, string charset, string signType, bool keyFromFile)
         {
             string sign = parameters["sign"];
 
@@ -189,7 +189,7 @@ namespace Aop.Api.Util
             return RSACheckContent(signContent, sign, publicKeyPem, charset, "RSA");
         }
 
-	public static bool RSACheckV2(IDictionary<string, string> parameters, string publicKeyPem, string charset, string signType, bool keyFromFile)
+        public static bool RSACheckV2(IDictionary<string, string> parameters, string publicKeyPem, string charset, string signType, bool keyFromFile)
         {
             string sign = parameters["sign"];
 
@@ -228,8 +228,7 @@ namespace Aop.Api.Util
                     RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
                     rsa.PersistKeyInCsp = false;
                     RSACryptoServiceProviderExtension.LoadPublicKeyPEM(rsa, sPublicKeyPEM);
-
-                    SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider();
+                    var sha1 = SHA1.Create();
                     bool bVerifyResultOriginal = rsa.VerifyData(Encoding.GetEncoding(charset).GetBytes(signContent), sha1, Convert.FromBase64String(sign));
                     return bVerifyResultOriginal;
                 }
@@ -266,12 +265,12 @@ namespace Aop.Api.Util
 
                 if ("RSA2".Equals(signType))
                 {
-                        RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
-                        rsa.PersistKeyInCsp = false;
-                        RSACryptoServiceProviderExtension.LoadPublicKeyPEM(rsa, sPublicKeyPEM);
+                    RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
+                    rsa.PersistKeyInCsp = false;
+                    RSACryptoServiceProviderExtension.LoadPublicKeyPEM(rsa, sPublicKeyPEM);
 
-                        bool bVerifyResultOriginal = rsa.VerifyData(Encoding.GetEncoding(charset).GetBytes(signContent), "SHA256", Convert.FromBase64String(sign));
-                        return bVerifyResultOriginal;
+                    bool bVerifyResultOriginal = rsa.VerifyData(Encoding.GetEncoding(charset).GetBytes(signContent), "SHA256", Convert.FromBase64String(sign));
+                    return bVerifyResultOriginal;
                 }
                 else
                 {
@@ -279,7 +278,7 @@ namespace Aop.Api.Util
                     rsa.PersistKeyInCsp = false;
                     RSACryptoServiceProviderExtension.LoadPublicKeyPEM(rsa, sPublicKeyPEM);
 
-                    SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider();
+                    var sha1 = SHA1.Create();
                     bool bVerifyResultOriginal = rsa.VerifyData(Encoding.GetEncoding(charset).GetBytes(signContent), sha1, Convert.FromBase64String(sign));
                     return bVerifyResultOriginal;
                 }
@@ -308,7 +307,7 @@ namespace Aop.Api.Util
                 RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
                 rsa.PersistKeyInCsp = false;
                 RSACryptoServiceProviderExtension.LoadPublicKeyPEM(rsa, sPublicKeyPEM);
-                SHA1CryptoServiceProvider sha1 = new SHA1CryptoServiceProvider();
+                var sha1 = SHA1.Create();
                 if (string.IsNullOrEmpty(charset))
                 {
                     charset = DEFAULT_CHARSET;
@@ -362,7 +361,7 @@ namespace Aop.Api.Util
 
             if (isDecrypt)
             {
-                return RSADecrypt(bizContent, cusPrivateKey, charset, signType ,keyFromFile);
+                return RSADecrypt(bizContent, cusPrivateKey, charset, signType, keyFromFile);
             }
 
             return bizContent;
@@ -383,12 +382,12 @@ namespace Aop.Api.Util
                 sb.Append("<alipay>");
                 String encrypted = RSAEncrypt(bizContent, alipayPublicKey, charset, keyFromFile);
                 sb.Append("<response>" + encrypted + "</response>");
-                sb.Append("<encryption_type>"+signType+"</encryption_type>");
+                sb.Append("<encryption_type>" + signType + "</encryption_type>");
                 if (isSign)
                 {
                     String sign = RSASign(encrypted, cusPrivateKey, charset, signType, keyFromFile);
                     sb.Append("<sign>" + sign + "</sign>");
-                    sb.Append("<sign_type>"+signType+"</sign_type>");
+                    sb.Append("<sign_type>" + signType + "</sign_type>");
                 }
                 sb.Append("</alipay>");
             }
@@ -398,7 +397,7 @@ namespace Aop.Api.Util
                 sb.Append("<response>" + bizContent + "</response>");
                 String sign = RSASign(bizContent, cusPrivateKey, charset, signType, keyFromFile);
                 sb.Append("<sign>" + sign + "</sign>");
-                sb.Append("<sign_type>"+signType+"</sign_type>");
+                sb.Append("<sign_type>" + signType + "</sign_type>");
                 sb.Append("</alipay>");
             }
             else
@@ -479,8 +478,7 @@ namespace Aop.Api.Util
                     crypStream.Write(cryptograph, 0, cryptograph.Length);
                     blockSize = plaiStream.Read(buffer, 0, maxBlockSize);
                 }
-
-                return Convert.ToBase64String(crypStream.ToArray(), Base64FormattingOptions.None);
+                return Convert.ToBase64String(crypStream.ToArray());
             }
             catch (Exception ex)
             {
@@ -492,9 +490,12 @@ namespace Aop.Api.Util
             try
             {
                 string sPublicKeyPEM;
-                if (keyFromFile) {
+                if (keyFromFile)
+                {
                     sPublicKeyPEM = File.ReadAllText(publicKeyPem);
-                }else{
+                }
+                else
+                {
                     sPublicKeyPEM = "-----BEGIN PUBLIC KEY-----\r\n";
                     sPublicKeyPEM += publicKeyPem;
                     sPublicKeyPEM += "-----END PUBLIC KEY-----\r\n\r\n";
@@ -526,7 +527,7 @@ namespace Aop.Api.Util
                     blockSize = plaiStream.Read(buffer, 0, maxBlockSize);
                 }
 
-                return Convert.ToBase64String(crypStream.ToArray(), Base64FormattingOptions.None);
+                return Convert.ToBase64String(crypStream.ToArray());
             }
             catch (Exception ex)
             {
@@ -576,7 +577,7 @@ namespace Aop.Api.Util
             try
             {
                 RSACryptoServiceProvider rsaCsp = null;
-                 if (keyFromFile)
+                if (keyFromFile)
                 {
                     //文件读取
                     rsaCsp = LoadCertificateFile(privateKeyPem, signType);
@@ -646,7 +647,7 @@ namespace Aop.Api.Util
                     RSACryptoServiceProvider rsa = DecodeRSAPrivateKey(res, signType);
                     return rsa;
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                 }
                 return null;
@@ -664,7 +665,7 @@ namespace Aop.Api.Util
                 RSACryptoServiceProvider rsa = DecodeRSAPrivateKey(data, signType);
                 return rsa;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //    throw new AopException("EncryptContent = woshihaoren,zheshiyigeceshi,wanerde", ex);
             }
@@ -748,13 +749,13 @@ namespace Aop.Api.Util
                 RSA.ImportParameters(RSAparams);
                 return RSA;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
             finally
             {
-                binr.Close();
+                binr.Dispose();
             }
         }
 
@@ -765,30 +766,30 @@ namespace Aop.Api.Util
             byte highbyte = 0x00;
             int count = 0;
             bt = binr.ReadByte();
-            if (bt != 0x02)		//expect integer
+            if (bt != 0x02)     //expect integer
                 return 0;
             bt = binr.ReadByte();
 
             if (bt == 0x81)
-                count = binr.ReadByte();	// data size in next byte
+                count = binr.ReadByte();    // data size in next byte
             else
                 if (bt == 0x82)
-                {
-                    highbyte = binr.ReadByte();	// data size in next 2 bytes
-                    lowbyte = binr.ReadByte();
-                    byte[] modint = { lowbyte, highbyte, 0x00, 0x00 };
-                    count = BitConverter.ToInt32(modint, 0);
-                }
-                else
-                {
-                    count = bt;		// we already have the data size
-                }
+            {
+                highbyte = binr.ReadByte(); // data size in next 2 bytes
+                lowbyte = binr.ReadByte();
+                byte[] modint = { lowbyte, highbyte, 0x00, 0x00 };
+                count = BitConverter.ToInt32(modint, 0);
+            }
+            else
+            {
+                count = bt;     // we already have the data size
+            }
 
             while (binr.ReadByte() == 0x00)
-            {	//remove high order zeros in data
+            {   //remove high order zeros in data
                 count -= 1;
             }
-            binr.BaseStream.Seek(-1, SeekOrigin.Current);		//last ReadByte wasn't a removed zero, so back up a byte
+            binr.BaseStream.Seek(-1, SeekOrigin.Current);       //last ReadByte wasn't a removed zero, so back up a byte
             return count;
         }
     }

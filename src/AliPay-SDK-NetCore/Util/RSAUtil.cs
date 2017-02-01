@@ -1,10 +1,4 @@
-﻿using System;
-using System.Text;
-using System.Security.Cryptography;
-using System.Web;
-using System.IO;
-using System.ComponentModel;
-
+﻿
 namespace Aop.Api.Util
 {
     /// <summary>

@@ -21,12 +21,12 @@ namespace Aop.Api.Response
         /// 响应码
         /// </summary>
         [XmlElement("code")]
-        public string Code { get; set; }
+        public new string Code { get; set; }
 
         /// <summary>
         /// 响应描述
         /// </summary>
         [XmlElement("msg")]
-        public string Msg { get; set; }
+        public new string Msg { get; set; }
     }
 }

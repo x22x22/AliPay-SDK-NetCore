@@ -1,7 +1,8 @@
-﻿using Jayrock.Json;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace Aop.Api.Parser
 {
@@ -93,22 +94,24 @@ namespace Aop.Api.Parser
                     {
                         // TODO not support yet
                     }
-                    else if (typeof(JsonNumber).IsAssignableFrom(item.GetType())) // list/array
-                    {
-                        JsonNumber jsonNumber = (JsonNumber)item;
-                        if (typeof(long).IsAssignableFrom(type))
-                        {
-                            listObjs.Add(jsonNumber.ToInt64());
-                        }
-                        else if (typeof(int).IsAssignableFrom(type))
-                        {
-                            listObjs.Add(jsonNumber.ToInt32());
-                        }
-                        else if (typeof(double).IsAssignableFrom(type))
-                        {
-                            listObjs.Add(jsonNumber.ToDouble());
-                        }
-                    }
+                    //临时
+                    //未知JsonNumber含义
+                    //else if (typeof(JsonNumber).IsAssignableFrom(item.GetType())) // list/array
+                    //{
+                    //    JsonNumber jsonNumber = (JsonNumber)item;
+                    //    if (typeof(long).IsAssignableFrom(type))
+                    //    {
+                    //        listObjs.Add(jsonNumber.ToInt64());
+                    //    }
+                    //    else if (typeof(int).IsAssignableFrom(type))
+                    //    {
+                    //        listObjs.Add(jsonNumber.ToInt32());
+                    //    }
+                    //    else if (typeof(double).IsAssignableFrom(type))
+                    //    {
+                    //        listObjs.Add(jsonNumber.ToDouble());
+                    //    }
+                    //}
                     else // boolean, string, null
                     {
                         listObjs.Add(item);

@@ -12,12 +12,12 @@ namespace Aop.Api.Response
         /// 请求操作成功与否，200为成功
         /// </summary>
         [XmlElement("code")]
-        public string Code { get; set; }
+        public new string Code { get; set; }
 
         /// <summary>
         /// 请求的处理结果
         /// </summary>
         [XmlElement("msg")]
-        public string Msg { get; set; }
+        public new string Msg { get; set; }
     }
 }

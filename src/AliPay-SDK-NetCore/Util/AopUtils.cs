@@ -1,24 +1,24 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Text;
-using Jayrock.Json.Conversion;
 
 namespace Aop.Api.Util
 {
     /// <summary>
-    public abstract class AopUtils
-    {    /// AOP系统工具类。
+    /// AOP系统工具类。
     /// </summary>
+    public abstract class AopUtils
+    {    
 
-
-        /// <summary>m>
+        /// <summary>
         /// <param name="bizContent"></param>
         /// <param name="charset"></param>
         ///  AES加密
         /// </summary>
-        /// <param name="encryptKey"></para
+        /// <param name="encryptKey"></param>
         /// <returns></returns>
         public static string AesEncrypt(string encryptKey, string bizContent, string charset)
         {
@@ -174,7 +174,7 @@ namespace Aop.Api.Util
 
         public static IDictionary ParseJson(string body)
         {
-            return JsonConvert.Import(body) as IDictionary;
+            return JsonConvert.DeserializeObject<IDictionary>(body);
         }
     }
 }

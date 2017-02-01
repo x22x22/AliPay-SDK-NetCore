@@ -21,10 +21,12 @@ namespace Aop.Api
         {
         }
 
-        protected AopException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
-        {
-        }
+
+        //临时
+        //protected AopException(SerializationInfo info, StreamingContext context)
+        //    : base(info, context)
+        //{
+        //}
 
         public AopException(string message, Exception innerException)
             : base(message, innerException)

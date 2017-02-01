@@ -5,14 +5,12 @@ using Aop.Api.Parser;
 using Aop.Api.Request;
 using Aop.Api.Util;
 using System.Text;
-using System.Web;
 
 using System.IO;
 using System.Net;
 
 using System.Xml;
-using Jayrock.Json;
-using Jayrock.Json.Conversion;
+using Newtonsoft.Json;
 
 namespace Aop.Api
 {
@@ -48,7 +46,7 @@ namespace Aop.Api
         private string charset;
         private string alipayPublicKey;
         private bool keyFromFile = false;
-        private string httpmethod;
+        //private string httpmethod;
         public string return_url;
 
         public string notify_url;
@@ -551,7 +549,7 @@ namespace Aop.Api
             StringBuilder prestr = new StringBuilder();
             foreach (KeyValuePair<string, string> temp in dicArray)
             {
-                prestr.Append(temp.Key + "=" + HttpUtility.UrlEncode(temp.Value, code) + "&");
+                prestr.Append(temp.Key + "=" + WebUtilitys.UrlEncode(temp.Value, code) + "&");
             }
 
             //去掉最後一個&字符
@@ -679,11 +677,10 @@ namespace Aop.Api
         private String Serialize(AopObject obj)
         {
             // 使用AopModelParser序列化对象
-            AopModelParser parser = new AopModelParser();
-            JsonObject jo = parser.serializeAopObject(obj);
+            string jo = JsonConvert.SerializeObject(obj);
 
             // 根据JsonObject导出String格式的Json
-            String result = JsonConvert.ExportToString(jo);
+            String result = jo;
 
             return result;
         }

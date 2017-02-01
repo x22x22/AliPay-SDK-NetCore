@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Web;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -37,12 +36,20 @@ namespace Aop.Api.Util
             req.ContentType = "application/x-www-form-urlencoded;charset=" + charset;
 
             byte[] postData = Encoding.GetEncoding(charset).GetBytes(BuildQuery(parameters, charset));
-            Stream reqStream = req.GetRequestStream();
-            reqStream.Write(postData, 0, postData.Length);
-            reqStream.Close();
+            var reqTaskStream = req.GetRequestStreamAsync();
+            reqTaskStream.Wait();
 
-            HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
-            Encoding encoding = Encoding.GetEncoding(rsp.CharacterSet);
+            Stream reqStream = reqTaskStream.Result;
+            reqStream.Write(postData, 0, postData.Length);
+            reqStream.Dispose();
+
+            var rspTask = req.GetResponseAsync();
+            rspTask.Wait();
+
+            HttpWebResponse rsp = (HttpWebResponse)rspTask.Result;
+            //临时
+            //此处需要确定怎么获取到字符集类型,先写死成UTF8
+            Encoding encoding = Encoding.GetEncoding("UTF-8");
             return GetResponseAsString(rsp, encoding);
         }
 
@@ -59,7 +66,7 @@ namespace Aop.Api.Util
             {
                 if (url.Contains("?"))
                 {
-                    url = url + "&" + BuildQuery(parameters,charset);
+                    url = url + "&" + BuildQuery(parameters, charset);
                 }
                 else
                 {
@@ -70,8 +77,14 @@ namespace Aop.Api.Util
             HttpWebRequest req = GetWebRequest(url, "GET");
             req.ContentType = "application/x-www-form-urlencoded;charset=" + charset;
 
-            HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
-            Encoding encoding = Encoding.GetEncoding(rsp.CharacterSet);
+            var reqTask = req.GetResponseAsync();
+            reqTask.Wait();
+
+            HttpWebResponse rsp = (HttpWebResponse)reqTask.Result;
+
+            //临时
+            //此处需要确定怎么获取到字符集类型,先写死成UTF8
+            Encoding encoding = Encoding.GetEncoding("UTF-8");
             return GetResponseAsString(rsp, encoding);
         }
 
@@ -96,7 +109,10 @@ namespace Aop.Api.Util
             HttpWebRequest req = GetWebRequest(url, "POST");
             req.ContentType = "multipart/form-data;charset=" + charset + ";boundary=" + boundary;
 
-            Stream reqStream = req.GetRequestStream();
+            var reqTaskStream = req.GetRequestStreamAsync();
+            reqTaskStream.Wait();
+
+            Stream reqStream = reqTaskStream.Result;
             byte[] itemBoundaryBytes = Encoding.GetEncoding(charset).GetBytes("\r\n--" + boundary + "\r\n");
             byte[] endBoundaryBytes = Encoding.GetEncoding(charset).GetBytes("\r\n--" + boundary + "--\r\n");
 
@@ -128,21 +144,31 @@ namespace Aop.Api.Util
             }
 
             reqStream.Write(endBoundaryBytes, 0, endBoundaryBytes.Length);
-            reqStream.Close();
+            reqStream.Dispose();
 
-            HttpWebResponse rsp = (HttpWebResponse)req.GetResponse();
-            Encoding encoding = Encoding.GetEncoding(rsp.CharacterSet);
+            var reqTask = req.GetResponseAsync();
+            reqTask.Wait();
+
+            HttpWebResponse rsp = (HttpWebResponse)reqTask.Result;
+
+            //临时
+            //此处需要确定怎么获取到字符集类型,先写死成UTF8
+            Encoding encoding = Encoding.GetEncoding("UTF-8");
             return GetResponseAsString(rsp, encoding);
         }
 
         public HttpWebRequest GetWebRequest(string url, string method)
         {
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
-            req.ServicePoint.Expect100Continue = false;
+            //临时
+            //还未确认怎么重写这些注释掉的代码
+            //req.ServicePoint.Expect100Continue = false;
             req.Method = method;
-            req.KeepAlive = true;
-            req.UserAgent = "Aop4Net";
-            req.Timeout = this._timeout;
+            //req.KeepAlive = true;
+            req.Headers["Connection"] = "keep-alive";
+            //req.UserAgent = "Aop4Net";
+            req.Headers["User-Agent"] = "Aop4Net";
+            //req.Timeout = this._timeout;
             return req;
         }
 
@@ -179,9 +205,9 @@ namespace Aop.Api.Util
             finally
             {
                 // 释放资源
-                if (reader != null) reader.Close();
-                if (stream != null) stream.Close();
-                if (rsp != null) rsp.Close();
+                if (reader != null) reader.Dispose();
+                if (stream != null) stream.Dispose();
+                if (rsp != null) rsp.Dispose();
             }
 
             return result.ToString();
@@ -213,7 +239,7 @@ namespace Aop.Api.Util
                     postData.Append(name);
                     postData.Append("=");
 
-                    string encodedValue = HttpUtility.UrlEncode(value, Encoding.GetEncoding(charset));
+                    string encodedValue = WebUtilitys.UrlEncode(value, Encoding.GetEncoding(charset));
 
                     postData.Append(encodedValue);
                     hasParam = true;
