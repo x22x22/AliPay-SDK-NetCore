@@ -1,37 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using Aop.Api.Response;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Request
 {
     public class AlipayMobilePublicMultiMediaDownloadRequest : IAopRequest<AlipayMobilePublicMultiMediaDownloadResponse>
     {
-
         public string BizContent { get; set; }
         public Stream stream { set; get; }
 
         #region IAopRequest Members
+
         private string apiVersion = "1.0";
         private string terminalType;
         private string terminalInfo;
         private string prodCode;
         private string notifyUrl;
         private string returnUrl;
-        private bool needEncrypt = false;
+        private bool needEncrypt;
         private AopObject bizModel;
 
-      public void SetNeedEncrypt(bool needEncrypt)
+        public void SetNeedEncrypt(bool needEncrypt)
         {
             this.needEncrypt = needEncrypt;
         }
 
-   
-      public  bool GetNeedEncrypt()
+
+        public bool GetNeedEncrypt()
         {
-            return this.needEncrypt;
+            return needEncrypt;
         }
 
         public void SetNotifyUrl(string notifyUrl)
@@ -41,7 +38,7 @@ namespace Aop.Api.Request
 
         public string GetNotifyUrl()
         {
-            return this.notifyUrl;
+            return notifyUrl;
         }
 
         public void SetReturnUrl(string returnUrl)
@@ -51,7 +48,7 @@ namespace Aop.Api.Request
 
         public string GetReturnUrl()
         {
-            return this.returnUrl;
+            return returnUrl;
         }
 
         public void SetApiVersion(string apiVersion)
@@ -61,7 +58,7 @@ namespace Aop.Api.Request
 
         public string GetApiVersion()
         {
-            return this.apiVersion;
+            return apiVersion;
         }
 
         public void SetTerminalType(string terminalType)
@@ -71,7 +68,7 @@ namespace Aop.Api.Request
 
         public string GetTerminalType()
         {
-            return this.terminalType;
+            return terminalType;
         }
 
         public void SetTerminalInfo(string terminalInfo)
@@ -81,7 +78,7 @@ namespace Aop.Api.Request
 
         public string GetTerminalInfo()
         {
-            return this.terminalInfo;
+            return terminalInfo;
         }
 
         public void SetProdCode(string prodCode)
@@ -91,7 +88,7 @@ namespace Aop.Api.Request
 
         public string GetProdCode()
         {
-            return this.prodCode;
+            return prodCode;
         }
 
         public string GetApiName()
@@ -101,14 +98,14 @@ namespace Aop.Api.Request
 
         public IDictionary<string, string> GetParameters()
         {
-            AopDictionary parameters = new AopDictionary();
-            parameters.Add("biz_content", this.BizContent);
+            var parameters = new AopDictionary();
+            parameters.Add("biz_content", BizContent);
             return parameters;
         }
 
         public AopObject GetBizModel()
         {
-            return this.bizModel;
+            return bizModel;
         }
 
         public void SetBizModel(AopObject bizModel)

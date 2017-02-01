@@ -1,32 +1,32 @@
 using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// AlipayEcoCplifeRoominfoUploadModel Data Structure.
+    ///     AlipayEcoCplifeRoominfoUploadModel Data Structure.
     /// </summary>
     [Serializable]
     public class AlipayEcoCplifeRoominfoUploadModel : AopObject
     {
         /// <summary>
-        /// 请求批次号，由商户自定义，在商户系统内唯一标示一次业务请求。
+        ///     请求批次号，由商户自定义，在商户系统内唯一标示一次业务请求。
         /// </summary>
         [XmlElement("batch_id")]
-		[JsonProperty("batch_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("batch_id", NullValueHandling = NullValueHandling.Ignore)]
         public string BatchId { get; set; }
 
         /// <summary>
-        /// 业主所在物业小区ID(支付宝平台唯一小区ID标示)
+        ///     业主所在物业小区ID(支付宝平台唯一小区ID标示)
         /// </summary>
         [XmlElement("community_id")]
-		[JsonProperty("community_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("community_id", NullValueHandling = NullValueHandling.Ignore)]
         public string CommunityId { get; set; }
 
         /// <summary>
-        /// 待上传的房屋信息列表，单次上传不超过200条.
+        ///     待上传的房屋信息列表，单次上传不超过200条.
         /// </summary>
         [XmlArray("room_info_set")]
         [XmlArrayItem("cplife_room_info")]

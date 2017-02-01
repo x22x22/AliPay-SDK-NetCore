@@ -5,16 +5,16 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// KoubeiMarketingDataCustomreportDetailQueryModel Data Structure.
+    ///     KoubeiMarketingDataCustomreportDetailQueryModel Data Structure.
     /// </summary>
     [Serializable]
     public class KoubeiMarketingDataCustomreportDetailQueryModel : AopObject
     {
         /// <summary>
-        /// 自定义报表的规则KEY
+        ///     自定义报表的规则KEY
         /// </summary>
         [XmlElement("condition_key")]
-		[JsonProperty("condition_key", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("condition_key", NullValueHandling = NullValueHandling.Ignore)]
         public string ConditionKey { get; set; }
     }
 }

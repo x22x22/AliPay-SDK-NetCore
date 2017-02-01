@@ -5,23 +5,23 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// KoubeiQualityTestCloudacptActivityQueryModel Data Structure.
+    ///     KoubeiQualityTestCloudacptActivityQueryModel Data Structure.
     /// </summary>
     [Serializable]
     public class KoubeiQualityTestCloudacptActivityQueryModel : AopObject
     {
         /// <summary>
-        /// partener id
+        ///     partener id
         /// </summary>
         [XmlElement("pid")]
-		[JsonProperty("pid", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("pid", NullValueHandling = NullValueHandling.Ignore)]
         public string Pid { get; set; }
 
         /// <summary>
-        /// user id
+        ///     user id
         /// </summary>
         [XmlElement("uid")]
-		[JsonProperty("uid", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("uid", NullValueHandling = NullValueHandling.Ignore)]
         public string Uid { get; set; }
     }
 }

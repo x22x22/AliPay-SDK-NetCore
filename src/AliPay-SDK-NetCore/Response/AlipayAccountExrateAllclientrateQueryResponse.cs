@@ -1,18 +1,16 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Aop.Api.Domain;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayAccountExrateAllclientrateQueryResponse.
+    ///     AlipayAccountExrateAllclientrateQueryResponse.
     /// </summary>
     public class AlipayAccountExrateAllclientrateQueryResponse : AopResponse
     {
         /// <summary>
-        /// 汇率信息列表
+        ///     汇率信息列表
         /// </summary>
         [XmlArray("client_rate_list")]
         [XmlArrayItem("ex_client_rate_v_o")]

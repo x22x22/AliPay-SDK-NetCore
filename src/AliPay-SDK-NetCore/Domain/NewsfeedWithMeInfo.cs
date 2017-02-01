@@ -5,23 +5,23 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// NewsfeedWithMeInfo Data Structure.
+    ///     NewsfeedWithMeInfo Data Structure.
     /// </summary>
     [Serializable]
     public class NewsfeedWithMeInfo : AopObject
     {
         /// <summary>
-        /// 登录ID
+        ///     登录ID
         /// </summary>
         [XmlElement("login_id")]
-		[JsonProperty("login_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("login_id", NullValueHandling = NullValueHandling.Ignore)]
         public string LoginId { get; set; }
 
         /// <summary>
-        /// 用户id
+        ///     用户id
         /// </summary>
         [XmlElement("user_id")]
-		[JsonProperty("user_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("user_id", NullValueHandling = NullValueHandling.Ignore)]
         public string UserId { get; set; }
     }
 }

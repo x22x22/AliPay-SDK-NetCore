@@ -5,16 +5,16 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// KbAdvertContentShortLink Data Structure.
+    ///     KbAdvertContentShortLink Data Structure.
     /// </summary>
     [Serializable]
     public class KbAdvertContentShortLink : AopObject
     {
         /// <summary>
-        /// 链接地址
+        ///     链接地址
         /// </summary>
         [XmlElement("url")]
-		[JsonProperty("url", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("url", NullValueHandling = NullValueHandling.Ignore)]
         public string Url { get; set; }
     }
 }

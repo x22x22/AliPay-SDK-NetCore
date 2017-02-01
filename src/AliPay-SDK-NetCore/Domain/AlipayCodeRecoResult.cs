@@ -5,16 +5,16 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// AlipayCodeRecoResult Data Structure.
+    ///     AlipayCodeRecoResult Data Structure.
     /// </summary>
     [Serializable]
     public class AlipayCodeRecoResult : AopObject
     {
         /// <summary>
-        /// 识别的验证码内容
+        ///     识别的验证码内容
         /// </summary>
         [XmlElement("content")]
-		[JsonProperty("content", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("content", NullValueHandling = NullValueHandling.Ignore)]
         public string Content { get; set; }
     }
 }

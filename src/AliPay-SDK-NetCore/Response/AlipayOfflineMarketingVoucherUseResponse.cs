@@ -1,11 +1,7 @@
-using System;
-using System.Xml.Serialization;
-using Newtonsoft.Json;
-
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayOfflineMarketingVoucherUseResponse.
+    ///     AlipayOfflineMarketingVoucherUseResponse.
     /// </summary>
     public class AlipayOfflineMarketingVoucherUseResponse : AopResponse
     {

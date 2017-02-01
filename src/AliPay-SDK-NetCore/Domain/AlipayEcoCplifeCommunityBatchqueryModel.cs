@@ -5,30 +5,30 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// AlipayEcoCplifeCommunityBatchqueryModel Data Structure.
+    ///     AlipayEcoCplifeCommunityBatchqueryModel Data Structure.
     /// </summary>
     [Serializable]
     public class AlipayEcoCplifeCommunityBatchqueryModel : AopObject
     {
         /// <summary>
-        /// 分页查询的当前页码数，分页从1开始计数。  该参数不传入的时候，默认为1。
+        ///     分页查询的当前页码数，分页从1开始计数。  该参数不传入的时候，默认为1。
         /// </summary>
         [XmlElement("page_num")]
-		[JsonProperty("page_num", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("page_num", NullValueHandling = NullValueHandling.Ignore)]
         public long PageNum { get; set; }
 
         /// <summary>
-        /// 分页查询的每页最大数据条数，取值范围1-500。  不传该参数默认为200。
+        ///     分页查询的每页最大数据条数，取值范围1-500。  不传该参数默认为200。
         /// </summary>
         [XmlElement("page_size")]
-		[JsonProperty("page_size", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("page_size", NullValueHandling = NullValueHandling.Ignore)]
         public long PageSize { get; set; }
 
         /// <summary>
-        /// 如传入该参数，则返回指定状态的小区，支持的状态值：  PENDING_ONLINE 待上线  ONLINE - 上线  MAINTAIN - 维护中  OFFLINE - 下线    不传该值则默认返回所有状态的小区。
+        ///     如传入该参数，则返回指定状态的小区，支持的状态值：  PENDING_ONLINE 待上线  ONLINE - 上线  MAINTAIN - 维护中  OFFLINE - 下线    不传该值则默认返回所有状态的小区。
         /// </summary>
         [XmlElement("status")]
-		[JsonProperty("status", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("status", NullValueHandling = NullValueHandling.Ignore)]
         public string Status { get; set; }
     }
 }

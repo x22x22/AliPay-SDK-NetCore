@@ -5,23 +5,23 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// KoubeiMarketingDataActivityReportQueryModel Data Structure.
+    ///     KoubeiMarketingDataActivityReportQueryModel Data Structure.
     /// </summary>
     [Serializable]
     public class KoubeiMarketingDataActivityReportQueryModel : AopObject
     {
         /// <summary>
-        /// 查询报表数据的业务日期列表，精确到天，格式为yyyymmdd，支持列表格式，数据按天返回
+        ///     查询报表数据的业务日期列表，精确到天，格式为yyyymmdd，支持列表格式，数据按天返回
         /// </summary>
         [XmlElement("biz_date")]
-		[JsonProperty("biz_date", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("biz_date", NullValueHandling = NullValueHandling.Ignore)]
         public string BizDate { get; set; }
 
         /// <summary>
-        /// 活动id
+        ///     活动id
         /// </summary>
         [XmlElement("camp_id")]
-		[JsonProperty("camp_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("camp_id", NullValueHandling = NullValueHandling.Ignore)]
         public string CampId { get; set; }
     }
 }

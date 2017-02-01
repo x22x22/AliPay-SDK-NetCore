@@ -1,28 +1,27 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Aop.Api.Domain;
 using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayEcoCplifeRoominfoQueryResponse.
+    ///     AlipayEcoCplifeRoominfoQueryResponse.
     /// </summary>
     public class AlipayEcoCplifeRoominfoQueryResponse : AopResponse
     {
         /// <summary>
-        /// 符合条件的小区房屋信息列表.
+        ///     符合条件的小区房屋信息列表.
         /// </summary>
         [XmlArray("room_info")]
         [XmlArrayItem("cplife_room_detail")]
         public List<CplifeRoomDetail> RoomInfo { get; set; }
 
         /// <summary>
-        /// 该小区下已上传的房间总数
+        ///     该小区下已上传的房间总数
         /// </summary>
         [XmlElement("total_room_number")]
-		[JsonProperty("total_room_number", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("total_room_number", NullValueHandling = NullValueHandling.Ignore)]
         public long TotalRoomNumber { get; set; }
     }
 }

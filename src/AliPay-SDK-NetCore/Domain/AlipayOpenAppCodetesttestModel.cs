@@ -5,23 +5,23 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// AlipayOpenAppCodetesttestModel Data Structure.
+    ///     AlipayOpenAppCodetesttestModel Data Structure.
     /// </summary>
     [Serializable]
     public class AlipayOpenAppCodetesttestModel : AopObject
     {
         /// <summary>
-        /// 测试参数1
+        ///     测试参数1
         /// </summary>
         [XmlElement("testparam")]
-		[JsonProperty("testparam", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("testparam", NullValueHandling = NullValueHandling.Ignore)]
         public string Testparam { get; set; }
 
         /// <summary>
-        /// 测试测试
+        ///     测试测试
         /// </summary>
         [XmlElement("testtestparam")]
-		[JsonProperty("testtestparam", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("testtestparam", NullValueHandling = NullValueHandling.Ignore)]
         public string Testtestparam { get; set; }
     }
 }

@@ -1,19 +1,18 @@
-using System;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayUserTestResponse.
+    ///     AlipayUserTestResponse.
     /// </summary>
     public class AlipayUserTestResponse : AopResponse
     {
         /// <summary>
-        /// 返回值
+        ///     返回值
         /// </summary>
         [XmlElement("ret1")]
-		[JsonProperty("ret1", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("ret1", NullValueHandling = NullValueHandling.Ignore)]
         public string Ret1 { get; set; }
     }
 }

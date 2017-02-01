@@ -1,4 +1,3 @@
-using System;
 using System.Xml.Serialization;
 using Aop.Api.Domain;
 using Newtonsoft.Json;
@@ -6,22 +5,22 @@ using Newtonsoft.Json;
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// ZhimaMerchantTestPracticeResponse.
+    ///     ZhimaMerchantTestPracticeResponse.
     /// </summary>
     public class ZhimaMerchantTestPracticeResponse : AopResponse
     {
         /// <summary>
-        /// xxxx
+        ///     xxxx
         /// </summary>
         [XmlElement("dddd")]
-		[JsonProperty("dddd", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("dddd", NullValueHandling = NullValueHandling.Ignore)]
         public XXXXsdasdasd Dddd { get; set; }
 
         /// <summary>
-        /// ccc
+        ///     ccc
         /// </summary>
         [XmlElement("sss")]
-		[JsonProperty("sss", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("sss", NullValueHandling = NullValueHandling.Ignore)]
         public string Sss { get; set; }
     }
 }

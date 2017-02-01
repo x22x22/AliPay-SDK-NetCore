@@ -1,18 +1,16 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Aop.Api.Domain;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// KoubeiItemExtitemCategoryQueryResponse.
+    ///     KoubeiItemExtitemCategoryQueryResponse.
     /// </summary>
     public class KoubeiItemExtitemCategoryQueryResponse : AopResponse
     {
         /// <summary>
-        /// 品类信息列表
+        ///     品类信息列表
         /// </summary>
         [XmlArray("category_list")]
         [XmlArrayItem("ext_category")]

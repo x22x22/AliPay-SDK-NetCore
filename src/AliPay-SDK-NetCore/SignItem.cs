@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
-
-namespace Aop.Api
+﻿namespace Aop.Api
 {
     public class SignItem
     {
@@ -13,9 +8,9 @@ namespace Aop.Api
         public override string ToString()
         {
             return "{" + //
-                "Sign:" + Sign +//
-                ",SignSourceDate:" + SignSourceDate +//
-                "}";
+                   "Sign:" + Sign + //
+                   ",SignSourceDate:" + SignSourceDate + //
+                   "}";
         }
     }
 }

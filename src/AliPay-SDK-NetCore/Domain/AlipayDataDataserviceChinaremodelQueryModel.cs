@@ -5,30 +5,30 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// AlipayDataDataserviceChinaremodelQueryModel Data Structure.
+    ///     AlipayDataDataserviceChinaremodelQueryModel Data Structure.
     /// </summary>
     [Serializable]
     public class AlipayDataDataserviceChinaremodelQueryModel : AopObject
     {
         /// <summary>
-        /// 体检记录id
+        ///     体检记录id
         /// </summary>
         [XmlElement("id")]
-		[JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
         public string Id { get; set; }
 
         /// <summary>
-        /// 规则id
+        ///     规则id
         /// </summary>
         [XmlElement("rule_id")]
-		[JsonProperty("rule_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("rule_id", NullValueHandling = NullValueHandling.Ignore)]
         public string RuleId { get; set; }
 
         /// <summary>
-        /// 交易流水记录id
+        ///     交易流水记录id
         /// </summary>
         [XmlElement("trans_id")]
-		[JsonProperty("trans_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("trans_id", NullValueHandling = NullValueHandling.Ignore)]
         public string TransId { get; set; }
     }
 }

@@ -1,97 +1,108 @@
-using System;
 using System.Collections.Generic;
 using Aop.Api.Response;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Request
 {
     /// <summary>
-    /// AOP API: alipay.ecapiprod.drawndn.drawndnlist.query
+    ///     AOP API: alipay.ecapiprod.drawndn.drawndnlist.query
     /// </summary>
-    public class AlipayEcapiprodDrawndnDrawndnlistQueryRequest : IAopRequest<AlipayEcapiprodDrawndnDrawndnlistQueryResponse>
+    public class AlipayEcapiprodDrawndnDrawndnlistQueryRequest :
+        IAopRequest<AlipayEcapiprodDrawndnDrawndnlistQueryResponse>
     {
         /// <summary>
-        /// 授信编号
+        ///     授信编号
         /// </summary>
         public string CreditNo { get; set; }
 
         /// <summary>
-        /// 身份证号码
+        ///     身份证号码
         /// </summary>
         public string EntityCode { get; set; }
 
         /// <summary>
-        /// 客户的姓名
+        ///     客户的姓名
         /// </summary>
         public string EntityName { get; set; }
 
         /// <summary>
-        /// 融资平台分配给ISV的编码
+        ///     融资平台分配给ISV的编码
         /// </summary>
         public string IsvCode { get; set; }
 
         /// <summary>
-        /// 融资平台分配给小贷公司的机构编码
+        ///     融资平台分配给小贷公司的机构编码
         /// </summary>
         public string OrgCode { get; set; }
 
         #region IAopRequest Members
-		private bool  needEncrypt=false;
+
+        private bool needEncrypt;
         private string apiVersion = "1.0";
-		private string terminalType;
-		private string terminalInfo;
+        private string terminalType;
+        private string terminalInfo;
         private string prodCode;
-		private string notifyUrl;
+        private string notifyUrl;
         private string returnUrl;
-		private AopObject bizModel;
+        private AopObject bizModel;
 
-		public void SetNeedEncrypt(bool needEncrypt){
-             this.needEncrypt=needEncrypt;
+        public void SetNeedEncrypt(bool needEncrypt)
+        {
+            this.needEncrypt = needEncrypt;
         }
 
-        public bool GetNeedEncrypt(){
-
-            return this.needEncrypt;
+        public bool GetNeedEncrypt()
+        {
+            return needEncrypt;
         }
 
-		public void SetNotifyUrl(string notifyUrl){
+        public void SetNotifyUrl(string notifyUrl)
+        {
             this.notifyUrl = notifyUrl;
         }
 
-        public string GetNotifyUrl(){
-            return this.notifyUrl;
+        public string GetNotifyUrl()
+        {
+            return notifyUrl;
         }
 
-        public void SetReturnUrl(string returnUrl){
+        public void SetReturnUrl(string returnUrl)
+        {
             this.returnUrl = returnUrl;
         }
 
-        public string GetReturnUrl(){
-            return this.returnUrl;
+        public string GetReturnUrl()
+        {
+            return returnUrl;
         }
 
-        public void SetTerminalType(String terminalType){
-			this.terminalType=terminalType;
-		}
-
-    	public string GetTerminalType(){
-    		return this.terminalType;
-    	}
-
-    	public void SetTerminalInfo(String terminalInfo){
-    		this.terminalInfo=terminalInfo;
-    	}
-
-    	public string GetTerminalInfo(){
-    		return this.terminalInfo;
-    	}
-
-        public void SetProdCode(String prodCode){
-            this.prodCode=prodCode;
+        public void SetTerminalType(string terminalType)
+        {
+            this.terminalType = terminalType;
         }
 
-        public string GetProdCode(){
-            return this.prodCode;
+        public string GetTerminalType()
+        {
+            return terminalType;
+        }
+
+        public void SetTerminalInfo(string terminalInfo)
+        {
+            this.terminalInfo = terminalInfo;
+        }
+
+        public string GetTerminalInfo()
+        {
+            return terminalInfo;
+        }
+
+        public void SetProdCode(string prodCode)
+        {
+            this.prodCode = prodCode;
+        }
+
+        public string GetProdCode()
+        {
+            return prodCode;
         }
 
         public string GetApiName()
@@ -99,28 +110,30 @@ namespace Aop.Api.Request
             return "alipay.ecapiprod.drawndn.drawndnlist.query";
         }
 
-        public void SetApiVersion(string apiVersion){
-            this.apiVersion=apiVersion;
+        public void SetApiVersion(string apiVersion)
+        {
+            this.apiVersion = apiVersion;
         }
 
-        public string GetApiVersion(){
-            return this.apiVersion;
+        public string GetApiVersion()
+        {
+            return apiVersion;
         }
 
         public IDictionary<string, string> GetParameters()
         {
-            AopDictionary parameters = new AopDictionary();
-            parameters.Add("credit_no", this.CreditNo);
-            parameters.Add("entity_code", this.EntityCode);
-            parameters.Add("entity_name", this.EntityName);
-            parameters.Add("isv_code", this.IsvCode);
-            parameters.Add("org_code", this.OrgCode);
+            var parameters = new AopDictionary();
+            parameters.Add("credit_no", CreditNo);
+            parameters.Add("entity_code", EntityCode);
+            parameters.Add("entity_name", EntityName);
+            parameters.Add("isv_code", IsvCode);
+            parameters.Add("org_code", OrgCode);
             return parameters;
         }
 
-		public AopObject GetBizModel()
+        public AopObject GetBizModel()
         {
-            return this.bizModel;
+            return bizModel;
         }
 
         public void SetBizModel(AopObject bizModel)

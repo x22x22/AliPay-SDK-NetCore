@@ -1,18 +1,16 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Aop.Api.Domain;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayOpenPublicLabelQueryResponse.
+    ///     AlipayOpenPublicLabelQueryResponse.
     /// </summary>
     public class AlipayOpenPublicLabelQueryResponse : AopResponse
     {
         /// <summary>
-        /// 该服务窗拥有的标签列表
+        ///     该服务窗拥有的标签列表
         /// </summary>
         [XmlArray("label_list")]
         [XmlArrayItem("public_label")]

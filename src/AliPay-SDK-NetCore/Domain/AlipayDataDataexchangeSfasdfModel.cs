@@ -1,53 +1,53 @@
 using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// AlipayDataDataexchangeSfasdfModel Data Structure.
+    ///     AlipayDataDataexchangeSfasdfModel Data Structure.
     /// </summary>
     [Serializable]
     public class AlipayDataDataexchangeSfasdfModel : AopObject
     {
         /// <summary>
-        /// sdafsdfsaf
+        ///     sdafsdfsaf
         /// </summary>
         [XmlElement("adsfghjf")]
-		[JsonProperty("adsfghjf", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("adsfghjf", NullValueHandling = NullValueHandling.Ignore)]
         public AlipayItemVoucherTemplete Adsfghjf { get; set; }
 
         /// <summary>
-        /// ghjffdssfghj
+        ///     ghjffdssfghj
         /// </summary>
         [XmlArray("easadasfd")]
         [XmlArrayItem("string")]
         public List<string> Easadasfd { get; set; }
 
         /// <summary>
-        /// dsfghdsagfhd
+        ///     dsfghdsagfhd
         /// </summary>
         [XmlArray("gdfsa")]
         [XmlArrayItem("string")]
         public List<string> Gdfsa { get; set; }
 
         /// <summary>
-        /// ghjkhg
+        ///     ghjkhg
         /// </summary>
         [XmlElement("hjgdfs")]
-		[JsonProperty("hjgdfs", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("hjgdfs", NullValueHandling = NullValueHandling.Ignore)]
         public string Hjgdfs { get; set; }
 
         /// <summary>
-        /// sdgfjhkg
+        ///     sdgfjhkg
         /// </summary>
         [XmlArray("sdfgsdfg")]
         [XmlArrayItem("string")]
         public List<string> Sdfgsdfg { get; set; }
 
         /// <summary>
-        /// ASGFDGASaaf
+        ///     ASGFDGASaaf
         /// </summary>
         [XmlArray("wehtegf")]
         [XmlArrayItem("string")]

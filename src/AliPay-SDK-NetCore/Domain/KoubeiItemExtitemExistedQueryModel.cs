@@ -1,18 +1,17 @@
 using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// KoubeiItemExtitemExistedQueryModel Data Structure.
+    ///     KoubeiItemExtitemExistedQueryModel Data Structure.
     /// </summary>
     [Serializable]
     public class KoubeiItemExtitemExistedQueryModel : AopObject
     {
         /// <summary>
-        /// 商品编码列表, 商品编码数量不超过100条。
+        ///     商品编码列表, 商品编码数量不超过100条。
         /// </summary>
         [XmlArray("code_list")]
         [XmlArrayItem("string")]

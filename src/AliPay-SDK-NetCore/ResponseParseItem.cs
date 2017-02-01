@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
-
-namespace Aop.Api
+﻿namespace Aop.Api
 {
-    class ResponseParseItem
+    internal class ResponseParseItem
     {
-
         public string realContent;
 
         public string respContent;
-
     }
 }

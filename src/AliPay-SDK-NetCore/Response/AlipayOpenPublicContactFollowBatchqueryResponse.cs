@@ -1,18 +1,16 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Aop.Api.Domain;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayOpenPublicContactFollowBatchqueryResponse.
+    ///     AlipayOpenPublicContactFollowBatchqueryResponse.
     /// </summary>
     public class AlipayOpenPublicContactFollowBatchqueryResponse : AopResponse
     {
         /// <summary>
-        /// 联系人关注者列表
+        ///     联系人关注者列表
         /// </summary>
         [XmlArray("contact_follow_list")]
         [XmlArrayItem("contact_follower")]

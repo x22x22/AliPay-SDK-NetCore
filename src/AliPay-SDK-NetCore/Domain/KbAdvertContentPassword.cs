@@ -5,23 +5,23 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// KbAdvertContentPassword Data Structure.
+    ///     KbAdvertContentPassword Data Structure.
     /// </summary>
     [Serializable]
     public class KbAdvertContentPassword : AopObject
     {
         /// <summary>
-        /// 红包口令
+        ///     红包口令
         /// </summary>
         [XmlElement("password")]
-		[JsonProperty("password", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("password", NullValueHandling = NullValueHandling.Ignore)]
         public string Password { get; set; }
 
         /// <summary>
-        /// 红包口令分享地址
+        ///     红包口令分享地址
         /// </summary>
         [XmlElement("share_page_url")]
-		[JsonProperty("share_page_url", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("share_page_url", NullValueHandling = NullValueHandling.Ignore)]
         public string SharePageUrl { get; set; }
     }
 }

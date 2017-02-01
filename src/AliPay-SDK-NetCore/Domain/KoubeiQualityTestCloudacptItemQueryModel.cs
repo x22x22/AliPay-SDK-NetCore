@@ -5,37 +5,37 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// KoubeiQualityTestCloudacptItemQueryModel Data Structure.
+    ///     KoubeiQualityTestCloudacptItemQueryModel Data Structure.
     /// </summary>
     [Serializable]
     public class KoubeiQualityTestCloudacptItemQueryModel : AopObject
     {
         /// <summary>
-        /// 活动id
+        ///     活动id
         /// </summary>
         [XmlElement("activity_id")]
-		[JsonProperty("activity_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("activity_id", NullValueHandling = NullValueHandling.Ignore)]
         public string ActivityId { get; set; }
 
         /// <summary>
-        /// 批次id
+        ///     批次id
         /// </summary>
         [XmlElement("batch_id")]
-		[JsonProperty("batch_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("batch_id", NullValueHandling = NullValueHandling.Ignore)]
         public string BatchId { get; set; }
 
         /// <summary>
-        /// partener id
+        ///     partener id
         /// </summary>
         [XmlElement("pid")]
-		[JsonProperty("pid", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("pid", NullValueHandling = NullValueHandling.Ignore)]
         public string Pid { get; set; }
 
         /// <summary>
-        /// user id
+        ///     user id
         /// </summary>
         [XmlElement("uid")]
-		[JsonProperty("uid", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("uid", NullValueHandling = NullValueHandling.Ignore)]
         public string Uid { get; set; }
     }
 }

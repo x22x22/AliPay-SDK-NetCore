@@ -1,11 +1,7 @@
-using System;
-using System.Xml.Serialization;
-using Newtonsoft.Json;
-
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayEcoCplifeBillSyncResponse.
+    ///     AlipayEcoCplifeBillSyncResponse.
     /// </summary>
     public class AlipayEcoCplifeBillSyncResponse : AopResponse
     {

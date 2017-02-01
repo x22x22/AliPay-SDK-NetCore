@@ -5,23 +5,23 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// AlipayOpenPublicShortlinkCreateModel Data Structure.
+    ///     AlipayOpenPublicShortlinkCreateModel Data Structure.
     /// </summary>
     [Serializable]
     public class AlipayOpenPublicShortlinkCreateModel : AopObject
     {
         /// <summary>
-        /// 对于场景ID的描述，商户自己定义
+        ///     对于场景ID的描述，商户自己定义
         /// </summary>
         [XmlElement("remark")]
-		[JsonProperty("remark", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("remark", NullValueHandling = NullValueHandling.Ignore)]
         public string Remark { get; set; }
 
         /// <summary>
-        /// 短链接对应的场景ID，该ID由商户自己定义
+        ///     短链接对应的场景ID，该ID由商户自己定义
         /// </summary>
         [XmlElement("scene_id")]
-		[JsonProperty("scene_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("scene_id", NullValueHandling = NullValueHandling.Ignore)]
         public string SceneId { get; set; }
     }
 }

@@ -1,26 +1,25 @@
-using System;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayEcoMycarDataExternalQueryResponse.
+    ///     AlipayEcoMycarDataExternalQueryResponse.
     /// </summary>
     public class AlipayEcoMycarDataExternalQueryResponse : AopResponse
     {
         /// <summary>
-        /// 30
+        ///     30
         /// </summary>
         [XmlElement("external_system_name")]
-		[JsonProperty("external_system_name", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("external_system_name", NullValueHandling = NullValueHandling.Ignore)]
         public string ExternalSystemName { get; set; }
 
         /// <summary>
-        /// outter_response
+        ///     outter_response
         /// </summary>
         [XmlElement("query_result")]
-		[JsonProperty("query_result", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("query_result", NullValueHandling = NullValueHandling.Ignore)]
         public string QueryResult { get; set; }
     }
 }

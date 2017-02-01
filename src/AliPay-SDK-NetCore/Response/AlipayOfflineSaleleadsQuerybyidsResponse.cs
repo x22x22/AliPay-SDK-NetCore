@@ -1,18 +1,16 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Aop.Api.Domain;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayOfflineSaleleadsQuerybyidsResponse.
+    ///     AlipayOfflineSaleleadsQuerybyidsResponse.
     /// </summary>
     public class AlipayOfflineSaleleadsQuerybyidsResponse : AopResponse
     {
         /// <summary>
-        /// 查询Leads信息对象集合
+        ///     查询Leads信息对象集合
         /// </summary>
         [XmlArray("merchantsaleleadsquerylist")]
         [XmlArrayItem("merchant_sale_leads_query_d_t_o")]

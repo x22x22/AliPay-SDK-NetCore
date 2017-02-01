@@ -1,17 +1,15 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// KoubeiItemExtitemExistedQueryResponse.
+    ///     KoubeiItemExtitemExistedQueryResponse.
     /// </summary>
     public class KoubeiItemExtitemExistedQueryResponse : AopResponse
     {
         /// <summary>
-        /// 商品库中存在的商品编码
+        ///     商品库中存在的商品编码
         /// </summary>
         [XmlArray("existed_list")]
         [XmlArrayItem("string")]

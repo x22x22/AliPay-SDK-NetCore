@@ -1,25 +1,24 @@
 using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// UseRuleInfo Data Structure.
+    ///     UseRuleInfo Data Structure.
     /// </summary>
     [Serializable]
     public class UseRuleInfo : AopObject
     {
         /// <summary>
-        /// 适用门店列表
+        ///     适用门店列表
         /// </summary>
         [XmlArray("suitable_shops")]
         [XmlArrayItem("string")]
         public List<string> SuitableShops { get; set; }
 
         /// <summary>
-        /// 核销方式
+        ///     核销方式
         /// </summary>
         [XmlArray("use_mode")]
         [XmlArrayItem("string")]

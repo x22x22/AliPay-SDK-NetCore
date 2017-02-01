@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Newtonsoft.Json;
-
-namespace Aop.Api.Parser
+﻿namespace Aop.Api.Parser
 {
-    class EncryptParseItem
+    internal class EncryptParseItem
     {
-
         public string encryptContent;
-        public int startIndex;
         public int endIndex;
-
+        public int startIndex;
     }
 }

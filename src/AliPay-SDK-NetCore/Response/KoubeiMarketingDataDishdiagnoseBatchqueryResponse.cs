@@ -1,18 +1,16 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Aop.Api.Domain;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// KoubeiMarketingDataDishdiagnoseBatchqueryResponse.
+    ///     KoubeiMarketingDataDishdiagnoseBatchqueryResponse.
     /// </summary>
     public class KoubeiMarketingDataDishdiagnoseBatchqueryResponse : AopResponse
     {
         /// <summary>
-        /// 查询返回的详情数据
+        ///     查询返回的详情数据
         /// </summary>
         [XmlArray("item_diagnose_list")]
         [XmlArrayItem("item_diagnose_detail")]

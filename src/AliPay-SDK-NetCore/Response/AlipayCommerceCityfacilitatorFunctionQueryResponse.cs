@@ -1,18 +1,16 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Aop.Api.Domain;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayCommerceCityfacilitatorFunctionQueryResponse.
+    ///     AlipayCommerceCityfacilitatorFunctionQueryResponse.
     /// </summary>
     public class AlipayCommerceCityfacilitatorFunctionQueryResponse : AopResponse
     {
         /// <summary>
-        /// 支持的功能列表
+        ///     支持的功能列表
         /// </summary>
         [XmlArray("functions")]
         [XmlArrayItem("support_function")]

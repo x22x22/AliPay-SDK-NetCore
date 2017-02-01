@@ -1,17 +1,15 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayUserAccountUseridBatchqueryResponse.
+    ///     AlipayUserAccountUseridBatchqueryResponse.
     /// </summary>
     public class AlipayUserAccountUseridBatchqueryResponse : AopResponse
     {
         /// <summary>
-        /// 用户列表
+        ///     用户列表
         /// </summary>
         [XmlArray("user_id_list")]
         [XmlArrayItem("string")]

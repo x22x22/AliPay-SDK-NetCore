@@ -1,18 +1,16 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Aop.Api.Domain;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayEcoCplifeRooominfoQueryResponse.
+    ///     AlipayEcoCplifeRooominfoQueryResponse.
     /// </summary>
     public class AlipayEcoCplifeRooominfoQueryResponse : AopResponse
     {
         /// <summary>
-        /// 符合条件的小区房屋信息列表.
+        ///     符合条件的小区房屋信息列表.
         /// </summary>
         [XmlArray("room_info")]
         [XmlArrayItem("cplife_room_detail")]

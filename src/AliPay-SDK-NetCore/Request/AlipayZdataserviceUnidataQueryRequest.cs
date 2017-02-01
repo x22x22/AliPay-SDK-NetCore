@@ -1,82 +1,92 @@
-using System;
 using System.Collections.Generic;
 using Aop.Api.Response;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Request
 {
     /// <summary>
-    /// AOP API: alipay.zdataservice.unidata.query
+    ///     AOP API: alipay.zdataservice.unidata.query
     /// </summary>
     public class AlipayZdataserviceUnidataQueryRequest : IAopRequest<AlipayZdataserviceUnidataQueryResponse>
     {
         /// <summary>
-        /// 通用的查询入参
+        ///     通用的查询入参
         /// </summary>
         public string QueryCondition { get; set; }
 
         /// <summary>
-        /// 返回数据的类型，内部业务系统分配
+        ///     返回数据的类型，内部业务系统分配
         /// </summary>
         public string UniqKey { get; set; }
 
         #region IAopRequest Members
-		private bool  needEncrypt=false;
+
+        private bool needEncrypt;
         private string apiVersion = "1.0";
-		private string terminalType;
-		private string terminalInfo;
+        private string terminalType;
+        private string terminalInfo;
         private string prodCode;
-		private string notifyUrl;
+        private string notifyUrl;
         private string returnUrl;
-		private AopObject bizModel;
+        private AopObject bizModel;
 
-		public void SetNeedEncrypt(bool needEncrypt){
-             this.needEncrypt=needEncrypt;
+        public void SetNeedEncrypt(bool needEncrypt)
+        {
+            this.needEncrypt = needEncrypt;
         }
 
-        public bool GetNeedEncrypt(){
-
-            return this.needEncrypt;
+        public bool GetNeedEncrypt()
+        {
+            return needEncrypt;
         }
 
-		public void SetNotifyUrl(string notifyUrl){
+        public void SetNotifyUrl(string notifyUrl)
+        {
             this.notifyUrl = notifyUrl;
         }
 
-        public string GetNotifyUrl(){
-            return this.notifyUrl;
+        public string GetNotifyUrl()
+        {
+            return notifyUrl;
         }
 
-        public void SetReturnUrl(string returnUrl){
+        public void SetReturnUrl(string returnUrl)
+        {
             this.returnUrl = returnUrl;
         }
 
-        public string GetReturnUrl(){
-            return this.returnUrl;
+        public string GetReturnUrl()
+        {
+            return returnUrl;
         }
 
-        public void SetTerminalType(String terminalType){
-			this.terminalType=terminalType;
-		}
-
-    	public string GetTerminalType(){
-    		return this.terminalType;
-    	}
-
-    	public void SetTerminalInfo(String terminalInfo){
-    		this.terminalInfo=terminalInfo;
-    	}
-
-    	public string GetTerminalInfo(){
-    		return this.terminalInfo;
-    	}
-
-        public void SetProdCode(String prodCode){
-            this.prodCode=prodCode;
+        public void SetTerminalType(string terminalType)
+        {
+            this.terminalType = terminalType;
         }
 
-        public string GetProdCode(){
-            return this.prodCode;
+        public string GetTerminalType()
+        {
+            return terminalType;
+        }
+
+        public void SetTerminalInfo(string terminalInfo)
+        {
+            this.terminalInfo = terminalInfo;
+        }
+
+        public string GetTerminalInfo()
+        {
+            return terminalInfo;
+        }
+
+        public void SetProdCode(string prodCode)
+        {
+            this.prodCode = prodCode;
+        }
+
+        public string GetProdCode()
+        {
+            return prodCode;
         }
 
         public string GetApiName()
@@ -84,25 +94,27 @@ namespace Aop.Api.Request
             return "alipay.zdataservice.unidata.query";
         }
 
-        public void SetApiVersion(string apiVersion){
-            this.apiVersion=apiVersion;
+        public void SetApiVersion(string apiVersion)
+        {
+            this.apiVersion = apiVersion;
         }
 
-        public string GetApiVersion(){
-            return this.apiVersion;
+        public string GetApiVersion()
+        {
+            return apiVersion;
         }
 
         public IDictionary<string, string> GetParameters()
         {
-            AopDictionary parameters = new AopDictionary();
-            parameters.Add("query_condition", this.QueryCondition);
-            parameters.Add("uniq_key", this.UniqKey);
+            var parameters = new AopDictionary();
+            parameters.Add("query_condition", QueryCondition);
+            parameters.Add("uniq_key", UniqKey);
             return parameters;
         }
 
-		public AopObject GetBizModel()
+        public AopObject GetBizModel()
         {
-            return this.bizModel;
+            return bizModel;
         }
 
         public void SetBizModel(AopObject bizModel)

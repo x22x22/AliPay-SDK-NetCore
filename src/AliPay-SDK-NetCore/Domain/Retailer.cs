@@ -5,23 +5,23 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// Retailer Data Structure.
+    ///     Retailer Data Structure.
     /// </summary>
     [Serializable]
     public class Retailer : AopObject
     {
         /// <summary>
-        /// 零售商名称
+        ///     零售商名称
         /// </summary>
         [XmlElement("name")]
-		[JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
 
         /// <summary>
-        /// 零售商pid
+        ///     零售商pid
         /// </summary>
         [XmlElement("partner_id")]
-		[JsonProperty("partner_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("partner_id", NullValueHandling = NullValueHandling.Ignore)]
         public string PartnerId { get; set; }
     }
 }

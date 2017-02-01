@@ -1,18 +1,17 @@
 using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// AlipayOpenPublicMenuCreateModel Data Structure.
+    ///     AlipayOpenPublicMenuCreateModel Data Structure.
     /// </summary>
     [Serializable]
     public class AlipayOpenPublicMenuCreateModel : AopObject
     {
         /// <summary>
-        /// 一级菜单数组，个数应为1~4个
+        ///     一级菜单数组，个数应为1~4个
         /// </summary>
         [XmlArray("button")]
         [XmlArrayItem("button_object")]

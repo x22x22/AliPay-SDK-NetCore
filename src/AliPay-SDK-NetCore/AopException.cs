@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Runtime.Serialization;
-using Newtonsoft.Json;
 
 namespace Aop.Api
 {
     /// <summary>
-    /// AOP客户端异常。
+    ///     AOP客户端异常。
     /// </summary>
     public class AopException : Exception
     {
-        private string errorCode;
-        private string errorMsg;
-
         public AopException()
-            : base()
         {
         }
 
@@ -37,18 +31,12 @@ namespace Aop.Api
         public AopException(string errorCode, string errorMsg)
             : base(errorCode + ":" + errorMsg)
         {
-            this.errorCode = errorCode;
-            this.errorMsg = errorMsg;
+            ErrorCode = errorCode;
+            ErrorMsg = errorMsg;
         }
 
-        public string ErrorCode
-        {
-            get { return this.errorCode; }
-        }
+        public string ErrorCode { get; }
 
-        public string ErrorMsg
-        {
-            get { return this.errorMsg; }
-        }
+        public string ErrorMsg { get; }
     }
 }

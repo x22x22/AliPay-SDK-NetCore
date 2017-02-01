@@ -1,18 +1,16 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Aop.Api.Domain;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayMobilePublicMockListsmlistApiResponse.
+    ///     AlipayMobilePublicMockListsmlistApiResponse.
     /// </summary>
     public class AlipayMobilePublicMockListsmlistApiResponse : AopResponse
     {
         /// <summary>
-        /// 简单模型嵌套list
+        ///     简单模型嵌套list
         /// </summary>
         [XmlArray("list_sm_model_list")]
         [XmlArrayItem("list_list_sm_mock_model")]

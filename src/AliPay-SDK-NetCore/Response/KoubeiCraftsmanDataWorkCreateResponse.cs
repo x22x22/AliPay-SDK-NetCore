@@ -1,18 +1,16 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Aop.Api.Domain;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// KoubeiCraftsmanDataWorkCreateResponse.
+    ///     KoubeiCraftsmanDataWorkCreateResponse.
     /// </summary>
     public class KoubeiCraftsmanDataWorkCreateResponse : AopResponse
     {
         /// <summary>
-        /// 作品id
+        ///     作品id
         /// </summary>
         [XmlArray("works")]
         [XmlArrayItem("craftsman_work_out_id_open_model")]

@@ -1,18 +1,16 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Parser
 {
     /// <summary>
-    /// AOP JSON响应通用读取器。
+    ///     AOP JSON响应通用读取器。
     /// </summary>
     public class AopJsonReader : IAopReader
     {
-        private IDictionary json;
+        private readonly IDictionary json;
 
         public AopJsonReader(IDictionary json)
         {
@@ -31,22 +29,17 @@ namespace Aop.Api.Parser
 
         public object GetReferenceObject(object name, Type type, DAopConvert convert)
         {
-            IDictionary dict = json[name] as IDictionary;
+            var dict = json[name] as IDictionary;
             if (dict != null && dict.Count > 0)
-            {
                 return convert(new AopJsonReader(dict), type);
-            }
-            else
-            {
-                return null;
-            }
+            return null;
         }
 
         public IList GetListObjects(string listName, string itemName, Type type, DAopConvert convert)
         {
             IList listObjs = null;
 
-            Object jsonObject = json[listName];
+            var jsonObject = json[listName];
 
 
             IList jsonList = null;
@@ -56,40 +49,31 @@ namespace Aop.Api.Parser
             }
             else if (jsonObject is IDictionary)
             {
-                IDictionary jsonMap = jsonObject as IDictionary;
+                var jsonMap = jsonObject as IDictionary;
 
                 if (jsonMap != null && jsonMap.Count > 0)
                 {
-
-                    Object itemTmp = jsonMap[itemName];
+                    var itemTmp = jsonMap[itemName];
 
                     if (itemTmp == null && listName != null)
-                    {
                         itemTmp = jsonMap[listName.Substring(0, listName.Length - 1)];
-                    }
 
                     if (itemTmp is IList)
-                    {
                         jsonList = itemTmp as IList;
-                    }
-
                 }
             }
 
             if (jsonList != null && jsonList.Count > 0)
             {
-                Type listType = typeof(List<>).MakeGenericType(new Type[] { type });
+                var listType = typeof(List<>).MakeGenericType(type);
                 listObjs = Activator.CreateInstance(listType) as IList;
-                foreach (object item in jsonList)
-                {
+                foreach (var item in jsonList)
                     if (typeof(IDictionary).IsAssignableFrom(item.GetType())) // object
                     {
-                        IDictionary subMap = item as IDictionary;
-                        object subObj = convert(new AopJsonReader(subMap), type);
+                        var subMap = item as IDictionary;
+                        var subObj = convert(new AopJsonReader(subMap), type);
                         if (subObj != null)
-                        {
                             listObjs.Add(subObj);
-                        }
                     }
                     else if (typeof(IList).IsAssignableFrom(item.GetType())) // list/array
                     {
@@ -117,8 +101,6 @@ namespace Aop.Api.Parser
                     {
                         listObjs.Add(item);
                     }
-                }
-
             }
 
             return listObjs;

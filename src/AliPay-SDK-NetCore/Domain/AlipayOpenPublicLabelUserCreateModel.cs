@@ -5,23 +5,23 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// AlipayOpenPublicLabelUserCreateModel Data Structure.
+    ///     AlipayOpenPublicLabelUserCreateModel Data Structure.
     /// </summary>
     [Serializable]
     public class AlipayOpenPublicLabelUserCreateModel : AopObject
     {
         /// <summary>
-        /// 要绑定的标签Id
+        ///     要绑定的标签Id
         /// </summary>
         [XmlElement("label_id")]
-		[JsonProperty("label_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("label_id", NullValueHandling = NullValueHandling.Ignore)]
         public long LabelId { get; set; }
 
         /// <summary>
-        /// 支付宝用户id，2088开头长度为16位的字符串
+        ///     支付宝用户id，2088开头长度为16位的字符串
         /// </summary>
         [XmlElement("user_id")]
-		[JsonProperty("user_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("user_id", NullValueHandling = NullValueHandling.Ignore)]
         public string UserId { get; set; }
     }
 }

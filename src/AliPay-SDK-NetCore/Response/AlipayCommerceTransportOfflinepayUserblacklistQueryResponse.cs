@@ -1,17 +1,15 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.Xml.Serialization;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayCommerceTransportOfflinepayUserblacklistQueryResponse.
+    ///     AlipayCommerceTransportOfflinepayUserblacklistQueryResponse.
     /// </summary>
     public class AlipayCommerceTransportOfflinepayUserblacklistQueryResponse : AopResponse
     {
         /// <summary>
-        /// 黑名单用户ID
+        ///     黑名单用户ID
         /// </summary>
         [XmlArray("black_list")]
         [XmlArrayItem("string")]

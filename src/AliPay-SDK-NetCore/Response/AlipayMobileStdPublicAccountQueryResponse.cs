@@ -1,18 +1,16 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Aop.Api.Domain;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayMobileStdPublicAccountQueryResponse.
+    ///     AlipayMobileStdPublicAccountQueryResponse.
     /// </summary>
     public class AlipayMobileStdPublicAccountQueryResponse : AopResponse
     {
         /// <summary>
-        /// 绑定账户列表
+        ///     绑定账户列表
         /// </summary>
         [XmlArray("public_bind_accounts")]
         [XmlArrayItem("public_bind_account")]

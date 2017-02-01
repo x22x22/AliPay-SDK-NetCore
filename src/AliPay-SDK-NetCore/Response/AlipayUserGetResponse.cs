@@ -1,4 +1,3 @@
-using System;
 using System.Xml.Serialization;
 using Aop.Api.Domain;
 using Newtonsoft.Json;
@@ -6,15 +5,15 @@ using Newtonsoft.Json;
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayUserGetResponse.
+    ///     AlipayUserGetResponse.
     /// </summary>
     public class AlipayUserGetResponse : AopResponse
     {
         /// <summary>
-        /// 支付宝用户信息
+        ///     支付宝用户信息
         /// </summary>
         [XmlElement("alipay_user_detail")]
-		[JsonProperty("alipay_user_detail", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("alipay_user_detail", NullValueHandling = NullValueHandling.Ignore)]
         public AlipayUserDetail AlipayUserDetail { get; set; }
     }
 }

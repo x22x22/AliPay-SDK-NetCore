@@ -1,4 +1,3 @@
-using System;
 using System.Xml.Serialization;
 using Aop.Api.Domain;
 using Newtonsoft.Json;
@@ -6,15 +5,15 @@ using Newtonsoft.Json;
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayMicropayOrderConfirmpayurlGetResponse.
+    ///     AlipayMicropayOrderConfirmpayurlGetResponse.
     /// </summary>
     public class AlipayMicropayOrderConfirmpayurlGetResponse : AopResponse
     {
         /// <summary>
-        /// SinglePayDetail信息
+        ///     SinglePayDetail信息
         /// </summary>
         [XmlElement("single_pay_detail")]
-		[JsonProperty("single_pay_detail", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("single_pay_detail", NullValueHandling = NullValueHandling.Ignore)]
         public SinglePayDetail SinglePayDetail { get; set; }
     }
 }

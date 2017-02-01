@@ -1,18 +1,16 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Aop.Api.Domain;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// KoubeiMarketingDataCustomtagBatchqueryResponse.
+    ///     KoubeiMarketingDataCustomtagBatchqueryResponse.
     /// </summary>
     public class KoubeiMarketingDataCustomtagBatchqueryResponse : AopResponse
     {
         /// <summary>
-        /// 自定义标签详情信息
+        ///     自定义标签详情信息
         /// </summary>
         [XmlArray("custom_tag_list")]
         [XmlArrayItem("custom_tag_info")]

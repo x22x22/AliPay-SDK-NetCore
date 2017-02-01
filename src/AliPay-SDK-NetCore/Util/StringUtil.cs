@@ -1,9 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Text;
 using System.Reflection;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Util
 {
@@ -12,52 +8,37 @@ namespace Aop.Api.Util
         public static string ToString(object obj)
         {
             if (obj == null)
-            {
                 return "null";
-            }
 
-            Type type = obj.GetType();
+            var type = obj.GetType();
             if (string.Equals("System", type.Namespace))
-            {
-                return "\"" + obj.ToString() + "\"";
-            }
+                return "\"" + obj + "\"";
 
             // class
-            string result = "{";
+            var result = "{";
 
-            PropertyInfo[] pis = type.GetProperties();
-            for (int i = 0; i < pis.Length; i++)
+            var pis = type.GetProperties();
+            for (var i = 0; i < pis.Length; i++)
             {
+                var pi = pis[i];
+                var pType = pi.PropertyType;
 
-                PropertyInfo pi = pis[i];
-                Type pType = pi.PropertyType;
-
-                MethodInfo getMethod = pi.GetGetMethod();
-                object value = getMethod.Invoke(obj, null);
+                var getMethod = pi.GetGetMethod();
+                var value = getMethod.Invoke(obj, null);
                 if (value == null)
-                {
                     continue;
-                }
 
-                string valueString = "";
+                var valueString = "";
 
                 if (string.Equals("System", pType.Namespace))
-                {
-                    valueString = "\"" + value.ToString() + "\"";
-                }
+                    valueString = "\"" + value + "\"";
                 else if (string.Equals("System.Collections.Generic", pType.Namespace))
-                {
                     valueString = List2String(value);
-                }
                 else
-                {
                     valueString = ToString(value);
-                }
 
                 if (i != 0)
-                {
                     result += ",";
-                }
                 result += "\"" + pi.Name + "\":" + valueString + "";
             }
             result += "}";
@@ -68,24 +49,19 @@ namespace Aop.Api.Util
         public static string List2String(object listObjects)
         {
             if (listObjects == null)
-            {
                 return "[]";
-            }
 
-            string result = "[";
+            var result = "[";
 
-            IList list = (IList)listObjects;
-            for (int i = 0; i < list.Count; i++)
+            var list = (IList) listObjects;
+            for (var i = 0; i < list.Count; i++)
             {
                 if (i != 0)
-                {
                     result += ",";
-                }
                 result += ToString(list[i]);
             }
             result += "]";
             return result;
         }
-
     }
 }

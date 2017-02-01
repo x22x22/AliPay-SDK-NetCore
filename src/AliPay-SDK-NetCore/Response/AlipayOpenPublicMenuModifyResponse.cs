@@ -1,11 +1,7 @@
-using System;
-using System.Xml.Serialization;
-using Newtonsoft.Json;
-
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayOpenPublicMenuModifyResponse.
+    ///     AlipayOpenPublicMenuModifyResponse.
     /// </summary>
     public class AlipayOpenPublicMenuModifyResponse : AopResponse
     {

@@ -5,79 +5,79 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// DeliverAddress Data Structure.
+    ///     DeliverAddress Data Structure.
     /// </summary>
     [Serializable]
     public class DeliverAddress : AopObject
     {
         /// <summary>
-        /// 地址
+        ///     地址
         /// </summary>
         [XmlElement("address")]
-		[JsonProperty("address", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("address", NullValueHandling = NullValueHandling.Ignore)]
         public string Address { get; set; }
 
         /// <summary>
-        /// 区域编码
+        ///     区域编码
         /// </summary>
         [XmlElement("address_code")]
-		[JsonProperty("address_code", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("address_code", NullValueHandling = NullValueHandling.Ignore)]
         public string AddressCode { get; set; }
 
         /// <summary>
-        /// 是否默认收货地址
+        ///     是否默认收货地址
         /// </summary>
         [XmlElement("default_deliver_address")]
-		[JsonProperty("default_deliver_address", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("default_deliver_address", NullValueHandling = NullValueHandling.Ignore)]
         public string DefaultDeliverAddress { get; set; }
 
         /// <summary>
-        /// 收货人所在区县
+        ///     收货人所在区县
         /// </summary>
         [XmlElement("deliver_area")]
-		[JsonProperty("deliver_area", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("deliver_area", NullValueHandling = NullValueHandling.Ignore)]
         public string DeliverArea { get; set; }
 
         /// <summary>
-        /// 收货人所在城市
+        ///     收货人所在城市
         /// </summary>
         [XmlElement("deliver_city")]
-		[JsonProperty("deliver_city", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("deliver_city", NullValueHandling = NullValueHandling.Ignore)]
         public string DeliverCity { get; set; }
 
         /// <summary>
-        /// 收货人全名
+        ///     收货人全名
         /// </summary>
         [XmlElement("deliver_fullname")]
-		[JsonProperty("deliver_fullname", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("deliver_fullname", NullValueHandling = NullValueHandling.Ignore)]
         public string DeliverFullname { get; set; }
 
         /// <summary>
-        /// 收货地址的联系人移动电话
+        ///     收货地址的联系人移动电话
         /// </summary>
         [XmlElement("deliver_mobile")]
-		[JsonProperty("deliver_mobile", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("deliver_mobile", NullValueHandling = NullValueHandling.Ignore)]
         public string DeliverMobile { get; set; }
 
         /// <summary>
-        /// 收货地址的联系人固定电话
+        ///     收货地址的联系人固定电话
         /// </summary>
         [XmlElement("deliver_phone")]
-		[JsonProperty("deliver_phone", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("deliver_phone", NullValueHandling = NullValueHandling.Ignore)]
         public string DeliverPhone { get; set; }
 
         /// <summary>
-        /// 收货人所在省份
+        ///     收货人所在省份
         /// </summary>
         [XmlElement("deliver_province")]
-		[JsonProperty("deliver_province", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("deliver_province", NullValueHandling = NullValueHandling.Ignore)]
         public string DeliverProvince { get; set; }
 
         /// <summary>
-        /// 邮政编码
+        ///     邮政编码
         /// </summary>
         [XmlElement("zip")]
-		[JsonProperty("zip", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("zip", NullValueHandling = NullValueHandling.Ignore)]
         public string Zip { get; set; }
     }
 }

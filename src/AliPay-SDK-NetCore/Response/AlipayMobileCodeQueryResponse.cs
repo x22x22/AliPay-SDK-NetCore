@@ -1,103 +1,102 @@
-using System;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayMobileCodeQueryResponse.
+    ///     AlipayMobileCodeQueryResponse.
     /// </summary>
     public class AlipayMobileCodeQueryResponse : AopResponse
     {
         /// <summary>
-        /// 业务关联ID。比如订单号,userId，业务连接等
+        ///     业务关联ID。比如订单号,userId，业务连接等
         /// </summary>
         [XmlElement("biz_linked_id")]
-		[JsonProperty("biz_linked_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("biz_linked_id", NullValueHandling = NullValueHandling.Ignore)]
         public string BizLinkedId { get; set; }
 
         /// <summary>
-        /// 类似产品名称，根据该值决定码存储类型
+        ///     类似产品名称，根据该值决定码存储类型
         /// </summary>
         [XmlElement("biz_type")]
-		[JsonProperty("biz_type", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("biz_type", NullValueHandling = NullValueHandling.Ignore)]
         public string BizType { get; set; }
 
         /// <summary>
-        /// 码值的状态，  init:初始  normal:正常  pause:暂停  stop:停止
+        ///     码值的状态，  init:初始  normal:正常  pause:暂停  stop:停止
         /// </summary>
         [XmlElement("code_status")]
-		[JsonProperty("code_status", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("code_status", NullValueHandling = NullValueHandling.Ignore)]
         public string CodeStatus { get; set; }
 
         /// <summary>
-        /// 业务自定义json字符串。
+        ///     业务自定义json字符串。
         /// </summary>
         [XmlElement("context_str")]
-		[JsonProperty("context_str", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("context_str", NullValueHandling = NullValueHandling.Ignore)]
         public string ContextStr { get; set; }
 
         /// <summary>
-        /// 动态生成图片地址
+        ///     动态生成图片地址
         /// </summary>
         [XmlElement("dynamic_img_url")]
-		[JsonProperty("dynamic_img_url", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("dynamic_img_url", NullValueHandling = NullValueHandling.Ignore)]
         public string DynamicImgUrl { get; set; }
 
         /// <summary>
-        /// 编码失效时间(yyyy-MM-dd hh:mm:ss)
+        ///     编码失效时间(yyyy-MM-dd hh:mm:ss)
         /// </summary>
         [XmlElement("expire_date")]
-		[JsonProperty("expire_date", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("expire_date", NullValueHandling = NullValueHandling.Ignore)]
         public string ExpireDate { get; set; }
 
         /// <summary>
-        /// 如果是true，则扫一扫下发跳转地址直接取自BizLinkedId  否则，从路由信息里取跳转地址
+        ///     如果是true，则扫一扫下发跳转地址直接取自BizLinkedId  否则，从路由信息里取跳转地址
         /// </summary>
         [XmlElement("is_direct")]
-		[JsonProperty("is_direct", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("is_direct", NullValueHandling = NullValueHandling.Ignore)]
         public string IsDirect { get; set; }
 
         /// <summary>
-        /// 备注信息
+        ///     备注信息
         /// </summary>
         [XmlElement("memo")]
-		[JsonProperty("memo", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("memo", NullValueHandling = NullValueHandling.Ignore)]
         public string Memo { get; set; }
 
         /// <summary>
-        /// 业务用到的码值
+        ///     业务用到的码值
         /// </summary>
         [XmlElement("qr_code")]
-		[JsonProperty("qr_code", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("qr_code", NullValueHandling = NullValueHandling.Ignore)]
         public string QrCode { get; set; }
 
         /// <summary>
-        /// 原始码值
+        ///     原始码值
         /// </summary>
         [XmlElement("qr_token")]
-		[JsonProperty("qr_token", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("qr_token", NullValueHandling = NullValueHandling.Ignore)]
         public string QrToken { get; set; }
 
         /// <summary>
-        /// 发码来源，业务自定
+        ///     发码来源，业务自定
         /// </summary>
         [XmlElement("source_id")]
-		[JsonProperty("source_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("source_id", NullValueHandling = NullValueHandling.Ignore)]
         public string SourceId { get; set; }
 
         /// <summary>
-        /// 编码启动时间(yyyy-MM-dd hh:mm:ss)
+        ///     编码启动时间(yyyy-MM-dd hh:mm:ss)
         /// </summary>
         [XmlElement("start_date")]
-		[JsonProperty("start_date", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("start_date", NullValueHandling = NullValueHandling.Ignore)]
         public string StartDate { get; set; }
 
         /// <summary>
-        /// 支付宝用户id
+        ///     支付宝用户id
         /// </summary>
         [XmlElement("user_id")]
-		[JsonProperty("user_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("user_id", NullValueHandling = NullValueHandling.Ignore)]
         public string UserId { get; set; }
     }
 }

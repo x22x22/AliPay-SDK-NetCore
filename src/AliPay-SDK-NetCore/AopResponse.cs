@@ -7,18 +7,18 @@ namespace Aop.Api
     [Serializable]
     public abstract class AopResponse
     {
+        private string body;
         private string code;
         private string msg;
         private string subCode;
         private string subMsg;
-        private string body;
 
         /// <summary>
-        /// 错误码
-        /// 对应 ErrCode
+        ///     错误码
+        ///     对应 ErrCode
         /// </summary>
         [XmlElement("code")]
-		[JsonProperty("code", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("code", NullValueHandling = NullValueHandling.Ignore)]
         public string Code
         {
             get { return code; }
@@ -26,11 +26,11 @@ namespace Aop.Api
         }
 
         /// <summary>
-        /// 错误信息
-        /// 对应 ErrMsg
+        ///     错误信息
+        ///     对应 ErrMsg
         /// </summary>
         [XmlElement("msg")]
-		[JsonProperty("msg", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("msg", NullValueHandling = NullValueHandling.Ignore)]
         public string Msg
         {
             get { return msg; }
@@ -38,11 +38,11 @@ namespace Aop.Api
         }
 
         /// <summary>
-        /// 子错误码
-        /// 对应 SubErrCode
+        ///     子错误码
+        ///     对应 SubErrCode
         /// </summary>
         [XmlElement("sub_code")]
-		[JsonProperty("sub_code", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("sub_code", NullValueHandling = NullValueHandling.Ignore)]
         public string SubCode
         {
             get { return subCode; }
@@ -50,11 +50,11 @@ namespace Aop.Api
         }
 
         /// <summary>
-        /// 子错误信息
-        /// 对应 SubErrMsg
+        ///     子错误信息
+        ///     对应 SubErrMsg
         /// </summary>
         [XmlElement("sub_msg")]
-		[JsonProperty("sub_msg", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("sub_msg", NullValueHandling = NullValueHandling.Ignore)]
         public string SubMsg
         {
             get { return subMsg; }
@@ -62,7 +62,7 @@ namespace Aop.Api
         }
 
         /// <summary>
-        /// 响应原始内容
+        ///     响应原始内容
         /// </summary>
         public string Body
         {
@@ -71,14 +71,11 @@ namespace Aop.Api
         }
 
         /// <summary>
-        /// 响应结果是否错误
+        ///     响应结果是否错误
         /// </summary>
         public bool IsError
         {
-            get
-            {
-                return !string.IsNullOrEmpty(this.SubCode);
-            }
+            get { return !string.IsNullOrEmpty(SubCode); }
         }
     }
 }

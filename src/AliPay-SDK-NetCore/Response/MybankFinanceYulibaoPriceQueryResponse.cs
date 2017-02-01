@@ -1,18 +1,16 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Aop.Api.Domain;
-using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// MybankFinanceYulibaoPriceQueryResponse.
+    ///     MybankFinanceYulibaoPriceQueryResponse.
     /// </summary>
     public class MybankFinanceYulibaoPriceQueryResponse : AopResponse
     {
         /// <summary>
-        /// 余利宝行情信息列表
+        ///     余利宝行情信息列表
         /// </summary>
         [XmlArray("ylb_price_detail_infos")]
         [XmlArrayItem("y_l_b_price_detail_info")]

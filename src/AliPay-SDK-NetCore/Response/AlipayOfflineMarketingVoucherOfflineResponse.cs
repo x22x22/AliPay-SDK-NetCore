@@ -1,26 +1,25 @@
-using System;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayOfflineMarketingVoucherOfflineResponse.
+    ///     AlipayOfflineMarketingVoucherOfflineResponse.
     /// </summary>
     public class AlipayOfflineMarketingVoucherOfflineResponse : AopResponse
     {
         /// <summary>
-        /// 券模板编号
+        ///     券模板编号
         /// </summary>
         [XmlElement("voucher_id")]
-		[JsonProperty("voucher_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("voucher_id", NullValueHandling = NullValueHandling.Ignore)]
         public string VoucherId { get; set; }
 
         /// <summary>
-        /// 券模板状态。EFFECTIVE=生效，INVALID=失效。
+        ///     券模板状态。EFFECTIVE=生效，INVALID=失效。
         /// </summary>
         [XmlElement("voucher_status")]
-		[JsonProperty("voucher_status", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("voucher_status", NullValueHandling = NullValueHandling.Ignore)]
         public string VoucherStatus { get; set; }
     }
 }

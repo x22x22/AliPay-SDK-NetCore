@@ -1,19 +1,18 @@
-using System;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayOpenPublicAccountCreateResponse.
+    ///     AlipayOpenPublicAccountCreateResponse.
     /// </summary>
     public class AlipayOpenPublicAccountCreateResponse : AopResponse
     {
         /// <summary>
-        /// 协议号，商户会员在支付宝服务窗账号中的唯一标识
+        ///     协议号，商户会员在支付宝服务窗账号中的唯一标识
         /// </summary>
         [XmlElement("agreement_id")]
-		[JsonProperty("agreement_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("agreement_id", NullValueHandling = NullValueHandling.Ignore)]
         public string AgreementId { get; set; }
     }
 }

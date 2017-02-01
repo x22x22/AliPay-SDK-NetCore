@@ -5,16 +5,16 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// Text Data Structure.
+    ///     Text Data Structure.
     /// </summary>
     [Serializable]
     public class Text : AopObject
     {
         /// <summary>
-        /// 你好!
+        ///     你好!
         /// </summary>
         [XmlElement("content")]
-		[JsonProperty("content", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("content", NullValueHandling = NullValueHandling.Ignore)]
         public string Content { get; set; }
     }
 }

@@ -1,19 +1,18 @@
-using System;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayOpenPublicMessageTotalSendResponse.
+    ///     AlipayOpenPublicMessageTotalSendResponse.
     /// </summary>
     public class AlipayOpenPublicMessageTotalSendResponse : AopResponse
     {
         /// <summary>
-        /// 消息ID
+        ///     消息ID
         /// </summary>
         [XmlElement("message_id")]
-		[JsonProperty("message_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("message_id", NullValueHandling = NullValueHandling.Ignore)]
         public string MessageId { get; set; }
     }
 }

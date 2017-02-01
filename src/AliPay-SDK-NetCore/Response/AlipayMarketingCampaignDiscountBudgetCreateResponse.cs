@@ -1,19 +1,18 @@
-using System;
 using System.Xml.Serialization;
 using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// AlipayMarketingCampaignDiscountBudgetCreateResponse.
+    ///     AlipayMarketingCampaignDiscountBudgetCreateResponse.
     /// </summary>
     public class AlipayMarketingCampaignDiscountBudgetCreateResponse : AopResponse
     {
         /// <summary>
-        /// 预算ID
+        ///     预算ID
         /// </summary>
         [XmlElement("budget_id")]
-		[JsonProperty("budget_id", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("budget_id", NullValueHandling = NullValueHandling.Ignore)]
         public string BudgetId { get; set; }
     }
 }

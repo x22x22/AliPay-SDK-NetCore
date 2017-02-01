@@ -1,42 +1,42 @@
-using System;
-using System.Xml.Serialization;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Aop.Api.Domain;
 using Newtonsoft.Json;
 
 namespace Aop.Api.Response
 {
     /// <summary>
-    /// KoubeiMarketingDataCustomtagDetailQueryResponse.
+    ///     KoubeiMarketingDataCustomtagDetailQueryResponse.
     /// </summary>
     public class KoubeiMarketingDataCustomtagDetailQueryResponse : AopResponse
     {
         /// <summary>
-        /// 列表中的每一个DataEnumValue表示自定义标签的一个枚举值，例如：定义标签为高富帅，则高富帅有高，中，低三个枚举值，本期只支持枚举值为1个的场景，并且枚举值的value固定为1，目前支持的数据标签字典参见<a href="http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/doc/reportAPIrule.xls">附件</a>
+        ///     列表中的每一个DataEnumValue表示自定义标签的一个枚举值，例如：定义标签为高富帅，则高富帅有高，中，低三个枚举值，本期只支持枚举值为1个的场景，并且枚举值的value固定为1，目前支持的数据标签字典参见
+        ///     <a href="http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/doc/reportAPIrule.xls">附件</a>
         /// </summary>
         [XmlArray("enum_values")]
         [XmlArrayItem("data_enum_value")]
         public List<DataEnumValue> EnumValues { get; set; }
 
         /// <summary>
-        /// 对自定义标签的描述
+        ///     对自定义标签的描述
         /// </summary>
         [XmlElement("memo")]
-		[JsonProperty("memo", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("memo", NullValueHandling = NullValueHandling.Ignore)]
         public string Memo { get; set; }
 
         /// <summary>
-        /// 标签名称
+        ///     标签名称
         /// </summary>
         [XmlElement("name")]
-		[JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
 
         /// <summary>
-        /// 标签code
+        ///     标签code
         /// </summary>
         [XmlElement("tag_code")]
-		[JsonProperty("tag_code", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("tag_code", NullValueHandling = NullValueHandling.Ignore)]
         public string TagCode { get; set; }
     }
 }

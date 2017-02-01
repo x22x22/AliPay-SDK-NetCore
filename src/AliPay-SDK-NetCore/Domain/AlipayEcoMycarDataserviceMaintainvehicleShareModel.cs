@@ -5,16 +5,16 @@ using Newtonsoft.Json;
 namespace Aop.Api.Domain
 {
     /// <summary>
-    /// AlipayEcoMycarDataserviceMaintainvehicleShareModel Data Structure.
+    ///     AlipayEcoMycarDataserviceMaintainvehicleShareModel Data Structure.
     /// </summary>
     [Serializable]
     public class AlipayEcoMycarDataserviceMaintainvehicleShareModel : AopObject
     {
         /// <summary>
-        /// 车辆ID
+        ///     车辆ID
         /// </summary>
         [XmlElement("vid")]
-		[JsonProperty("vid", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("vid", NullValueHandling = NullValueHandling.Ignore)]
         public string Vid { get; set; }
     }
 }
