@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -21,6 +22,7 @@ namespace Aop.Api.Domain
         /// 消费记录主记录
         /// </summary>
         [XmlElement("consume_record")]
+		[JsonProperty("consume_record", NullValueHandling = NullValueHandling.Ignore)]
         public ConsumeRecordAOPModel ConsumeRecord { get; set; }
     }
 }

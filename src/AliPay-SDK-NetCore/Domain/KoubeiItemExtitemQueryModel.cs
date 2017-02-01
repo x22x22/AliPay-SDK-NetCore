@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Domain
         /// 商品编码
         /// </summary>
         [XmlElement("item_code")]
+		[JsonProperty("item_code", NullValueHandling = NullValueHandling.Ignore)]
         public string ItemCode { get; set; }
     }
 }

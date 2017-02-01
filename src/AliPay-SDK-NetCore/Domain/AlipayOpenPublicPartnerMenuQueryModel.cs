@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,12 +14,14 @@ namespace Aop.Api.Domain
         /// 服务窗id
         /// </summary>
         [XmlElement("public_id")]
+		[JsonProperty("public_id", NullValueHandling = NullValueHandling.Ignore)]
         public string PublicId { get; set; }
 
         /// <summary>
         /// 用户id
         /// </summary>
         [XmlElement("user_id")]
+		[JsonProperty("user_id", NullValueHandling = NullValueHandling.Ignore)]
         public string UserId { get; set; }
     }
 }

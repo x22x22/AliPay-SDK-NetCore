@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -21,12 +22,14 @@ namespace Aop.Api.Domain
         /// 消息类型，text：文本类型，image-text：图文类型。当消息类型为text时，text参数必传，当消息类型为image-text时，articles参数必传
         /// </summary>
         [XmlElement("msg_type")]
+		[JsonProperty("msg_type", NullValueHandling = NullValueHandling.Ignore)]
         public string MsgType { get; set; }
 
         /// <summary>
         /// 文本消息内容
         /// </summary>
         [XmlElement("text")]
+		[JsonProperty("text", NullValueHandling = NullValueHandling.Ignore)]
         public Text Text { get; set; }
     }
 }

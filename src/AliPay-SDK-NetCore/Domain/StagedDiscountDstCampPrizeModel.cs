@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,6 +15,7 @@ namespace Aop.Api.Domain
         /// 折扣预算ID
         /// </summary>
         [XmlElement("budget_id")]
+		[JsonProperty("budget_id", NullValueHandling = NullValueHandling.Ignore)]
         public string BudgetId { get; set; }
 
         /// <summary>
@@ -27,12 +29,14 @@ namespace Aop.Api.Domain
         /// 奖品id
         /// </summary>
         [XmlElement("id")]
+		[JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
         public string Id { get; set; }
 
         /// <summary>
         /// 单次优惠上限(元)
         /// </summary>
         [XmlElement("max_discount_amt")]
+		[JsonProperty("max_discount_amt", NullValueHandling = NullValueHandling.Ignore)]
         public string MaxDiscountAmt { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -21,6 +22,7 @@ namespace Aop.Api.Domain
         /// 待发送的通知内容
         /// </summary>
         [XmlElement("notice_details")]
+		[JsonProperty("notice_details", NullValueHandling = NullValueHandling.Ignore)]
         public CplifeNoticeDetail NoticeDetails { get; set; }
     }
 }

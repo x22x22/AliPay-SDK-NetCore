@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,18 +15,21 @@ namespace Aop.Api.Domain
         /// 扩展属性，无需设置
         /// </summary>
         [XmlElement("ext_info")]
+		[JsonProperty("ext_info", NullValueHandling = NullValueHandling.Ignore)]
         public string ExtInfo { get; set; }
 
         /// <summary>
         /// 券的不可用时间
         /// </summary>
         [XmlElement("forbidden_time")]
+		[JsonProperty("forbidden_time", NullValueHandling = NullValueHandling.Ignore)]
         public ForbbidenTime ForbiddenTime { get; set; }
 
         /// <summary>
         /// 券核销的最低消费门槛，单位元
         /// </summary>
         [XmlElement("min_consume")]
+		[JsonProperty("min_consume", NullValueHandling = NullValueHandling.Ignore)]
         public string MinConsume { get; set; }
 
         /// <summary>

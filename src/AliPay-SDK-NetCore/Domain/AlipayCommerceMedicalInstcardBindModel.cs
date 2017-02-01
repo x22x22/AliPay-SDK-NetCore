@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Domain
         /// 支付宝处理完请求后，如验证成功，当前页面自动跳转到商户网站里指定页面的http路径。
         /// </summary>
         [XmlElement("return_url")]
+		[JsonProperty("return_url", NullValueHandling = NullValueHandling.Ignore)]
         public string ReturnUrl { get; set; }
     }
 }

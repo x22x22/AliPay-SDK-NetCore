@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,6 +15,7 @@ namespace Aop.Api.Domain
         /// 企业门店名称
         /// </summary>
         [XmlElement("shop_name")]
+		[JsonProperty("shop_name", NullValueHandling = NullValueHandling.Ignore)]
         public string ShopName { get; set; }
 
         /// <summary>
@@ -27,6 +29,7 @@ namespace Aop.Api.Domain
         /// 店铺门头照图片
         /// </summary>
         [XmlElement("shop_sign_board_pic")]
+		[JsonProperty("shop_sign_board_pic", NullValueHandling = NullValueHandling.Ignore)]
         public string ShopSignBoardPic { get; set; }
     }
 }

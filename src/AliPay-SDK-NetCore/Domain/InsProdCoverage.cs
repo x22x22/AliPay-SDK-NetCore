@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,24 +15,28 @@ namespace Aop.Api.Domain
         /// 险种描述
         /// </summary>
         [XmlElement("coverage_desc")]
+		[JsonProperty("coverage_desc", NullValueHandling = NullValueHandling.Ignore)]
         public string CoverageDesc { get; set; }
 
         /// <summary>
         /// 险种名称
         /// </summary>
         [XmlElement("coverage_name")]
+		[JsonProperty("coverage_name", NullValueHandling = NullValueHandling.Ignore)]
         public string CoverageName { get; set; }
 
         /// <summary>
         /// 险种编号
         /// </summary>
         [XmlElement("coverage_no")]
+		[JsonProperty("coverage_no", NullValueHandling = NullValueHandling.Ignore)]
         public string CoverageNo { get; set; }
 
         /// <summary>
         /// 是否定期险种
         /// </summary>
         [XmlElement("is_fixed_period")]
+		[JsonProperty("is_fixed_period", NullValueHandling = NullValueHandling.Ignore)]
         public bool IsFixedPeriod { get; set; }
 
         /// <summary>
@@ -52,6 +57,7 @@ namespace Aop.Api.Domain
         /// 保额
         /// </summary>
         [XmlElement("sum_insured")]
+		[JsonProperty("sum_insured", NullValueHandling = NullValueHandling.Ignore)]
         public InsSumInsured SumInsured { get; set; }
     }
 }

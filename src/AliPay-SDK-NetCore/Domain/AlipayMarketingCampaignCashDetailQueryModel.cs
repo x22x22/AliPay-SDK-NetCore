@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Domain
         /// 要查询的现金红包活动号
         /// </summary>
         [XmlElement("crowd_no")]
+		[JsonProperty("crowd_no", NullValueHandling = NullValueHandling.Ignore)]
         public string CrowdNo { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Domain
         /// 标签组发圈人的单个过滤器信息
         /// </summary>
         [XmlElement("a")]
+		[JsonProperty("a", NullValueHandling = NullValueHandling.Ignore)]
         public LabelFilter A { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,6 +15,7 @@ namespace Aop.Api.Domain
         /// 商户pid
         /// </summary>
         [XmlElement("pid")]
+		[JsonProperty("pid", NullValueHandling = NullValueHandling.Ignore)]
         public string Pid { get; set; }
 
         /// <summary>

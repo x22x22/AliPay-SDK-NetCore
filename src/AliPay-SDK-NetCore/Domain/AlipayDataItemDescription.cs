@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -28,12 +29,14 @@ namespace Aop.Api.Domain
         /// 描述标题，不得超过15个中文字符
         /// </summary>
         [XmlElement("title")]
+		[JsonProperty("title", NullValueHandling = NullValueHandling.Ignore)]
         public string Title { get; set; }
 
         /// <summary>
         /// 套餐使用说明链接，必须是https的地址链接
         /// </summary>
         [XmlElement("url")]
+		[JsonProperty("url", NullValueHandling = NullValueHandling.Ignore)]
         public string Url { get; set; }
     }
 }

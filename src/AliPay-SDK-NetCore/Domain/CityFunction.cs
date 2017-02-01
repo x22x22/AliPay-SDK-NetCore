@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,12 +15,14 @@ namespace Aop.Api.Domain
         /// 城市标准编码
         /// </summary>
         [XmlElement("city_code")]
+		[JsonProperty("city_code", NullValueHandling = NullValueHandling.Ignore)]
         public string CityCode { get; set; }
 
         /// <summary>
         /// 城市名称
         /// </summary>
         [XmlElement("city_name")]
+		[JsonProperty("city_name", NullValueHandling = NullValueHandling.Ignore)]
         public string CityName { get; set; }
 
         /// <summary>

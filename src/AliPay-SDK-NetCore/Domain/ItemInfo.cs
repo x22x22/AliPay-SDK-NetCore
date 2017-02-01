@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -28,36 +29,42 @@ namespace Aop.Api.Domain
         /// 单品券详细介绍跳转链接
         /// </summary>
         [XmlElement("item_link")]
+		[JsonProperty("item_link", NullValueHandling = NullValueHandling.Ignore)]
         public string ItemLink { get; set; }
 
         /// <summary>
         /// 单品名称
         /// </summary>
         [XmlElement("item_name")]
+		[JsonProperty("item_name", NullValueHandling = NullValueHandling.Ignore)]
         public string ItemName { get; set; }
 
         /// <summary>
         /// 单品券说明
         /// </summary>
         [XmlElement("item_text")]
+		[JsonProperty("item_text", NullValueHandling = NullValueHandling.Ignore)]
         public string ItemText { get; set; }
 
         /// <summary>
         /// 最高优惠商品件数
         /// </summary>
         [XmlElement("max_discount_num")]
+		[JsonProperty("max_discount_num", NullValueHandling = NullValueHandling.Ignore)]
         public string MaxDiscountNum { get; set; }
 
         /// <summary>
         /// 最低购买商品件数
         /// </summary>
         [XmlElement("min_consume_num")]
+		[JsonProperty("min_consume_num", NullValueHandling = NullValueHandling.Ignore)]
         public string MinConsumeNum { get; set; }
 
         /// <summary>
         /// 单品的原价，单位元  必须为合法金额类型字符串，如9.99
         /// </summary>
         [XmlElement("original_price")]
+		[JsonProperty("original_price", NullValueHandling = NullValueHandling.Ignore)]
         public string OriginalPrice { get; set; }
     }
 }

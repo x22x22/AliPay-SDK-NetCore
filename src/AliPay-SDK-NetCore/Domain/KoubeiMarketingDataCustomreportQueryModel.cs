@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,6 +15,7 @@ namespace Aop.Api.Domain
         /// 规则KEY
         /// </summary>
         [XmlElement("condition_key")]
+		[JsonProperty("condition_key", NullValueHandling = NullValueHandling.Ignore)]
         public string ConditionKey { get; set; }
 
         /// <summary>
@@ -27,6 +29,7 @@ namespace Aop.Api.Domain
         /// 一次拉多少条
         /// </summary>
         [XmlElement("max_count")]
+		[JsonProperty("max_count", NullValueHandling = NullValueHandling.Ignore)]
         public string MaxCount { get; set; }
     }
 }

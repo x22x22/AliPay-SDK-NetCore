@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,12 +14,14 @@ namespace Aop.Api.Domain
         /// IFAA标准中的校验类型，目前1为指纹
         /// </summary>
         [XmlElement("auth_type")]
+		[JsonProperty("auth_type", NullValueHandling = NullValueHandling.Ignore)]
         public string AuthType { get; set; }
 
         /// <summary>
         /// IFAA协议的版本，目前为2.0
         /// </summary>
         [XmlElement("ifaa_version")]
+		[JsonProperty("ifaa_version", NullValueHandling = NullValueHandling.Ignore)]
         public string IfaaVersion { get; set; }
     }
 }

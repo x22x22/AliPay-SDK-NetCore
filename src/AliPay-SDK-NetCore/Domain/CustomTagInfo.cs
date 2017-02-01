@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -21,18 +22,21 @@ namespace Aop.Api.Domain
         /// 对自定义标签的描述
         /// </summary>
         [XmlElement("memo")]
+		[JsonProperty("memo", NullValueHandling = NullValueHandling.Ignore)]
         public string Memo { get; set; }
 
         /// <summary>
         /// 标签名称
         /// </summary>
         [XmlElement("name")]
+		[JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
 
         /// <summary>
         /// 标签code
         /// </summary>
         [XmlElement("tag_code")]
+		[JsonProperty("tag_code", NullValueHandling = NullValueHandling.Ignore)]
         public string TagCode { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -21,6 +22,7 @@ namespace Aop.Api.Domain
         /// zzz
         /// </summary>
         [XmlElement("xxxx")]
+		[JsonProperty("xxxx", NullValueHandling = NullValueHandling.Ignore)]
         public XXXXsdasdasd Xxxx { get; set; }
     }
 }

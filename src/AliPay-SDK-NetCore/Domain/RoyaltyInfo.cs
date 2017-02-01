@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -21,6 +22,7 @@ namespace Aop.Api.Domain
         /// 分账类型  卖家的分账类型，目前只支持传入ROYALTY（普通分账类型）。
         /// </summary>
         [XmlElement("royalty_type")]
+		[JsonProperty("royalty_type", NullValueHandling = NullValueHandling.Ignore)]
         public string RoyaltyType { get; set; }
     }
 }

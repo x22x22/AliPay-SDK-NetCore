@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,18 +14,21 @@ namespace Aop.Api.Domain
         /// 撤销申请流水的原因
         /// </summary>
         [XmlElement("memo")]
+		[JsonProperty("memo", NullValueHandling = NullValueHandling.Ignore)]
         public string Memo { get; set; }
 
         /// <summary>
         /// 操作人ID，开店请求时候的操作人ID
         /// </summary>
         [XmlElement("op_id")]
+		[JsonProperty("op_id", NullValueHandling = NullValueHandling.Ignore)]
         public string OpId { get; set; }
 
         /// <summary>
         /// 要撤销的订单ID，当店铺创建、修改接口迁移至2.0时，同步返回的apply_id可以用作此接口的入参。
         /// </summary>
         [XmlElement("order_id")]
+		[JsonProperty("order_id", NullValueHandling = NullValueHandling.Ignore)]
         public string OrderId { get; set; }
     }
 }

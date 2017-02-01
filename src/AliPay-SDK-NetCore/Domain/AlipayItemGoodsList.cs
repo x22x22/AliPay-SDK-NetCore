@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,6 +15,7 @@ namespace Aop.Api.Domain
         /// 外部单品的描述信息（此字段暂时无用）
         /// </summary>
         [XmlElement("desc")]
+		[JsonProperty("desc", NullValueHandling = NullValueHandling.Ignore)]
         public string Desc { get; set; }
 
         /// <summary>

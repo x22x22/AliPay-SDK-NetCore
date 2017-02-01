@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,6 +15,7 @@ namespace Aop.Api.Domain
         /// sdafsdfsaf
         /// </summary>
         [XmlElement("adsfghjf")]
+		[JsonProperty("adsfghjf", NullValueHandling = NullValueHandling.Ignore)]
         public AlipayItemVoucherTemplete Adsfghjf { get; set; }
 
         /// <summary>
@@ -34,6 +36,7 @@ namespace Aop.Api.Domain
         /// ghjkhg
         /// </summary>
         [XmlElement("hjgdfs")]
+		[JsonProperty("hjgdfs", NullValueHandling = NullValueHandling.Ignore)]
         public string Hjgdfs { get; set; }
 
         /// <summary>

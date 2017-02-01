@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,6 +15,7 @@ namespace Aop.Api.Domain
         /// 营销活动ID
         /// </summary>
         [XmlElement("active_id")]
+		[JsonProperty("active_id", NullValueHandling = NullValueHandling.Ignore)]
         public string ActiveId { get; set; }
 
         /// <summary>
@@ -27,6 +29,7 @@ namespace Aop.Api.Domain
         /// 卡券来源
         /// </summary>
         [XmlElement("source_type")]
+		[JsonProperty("source_type", NullValueHandling = NullValueHandling.Ignore)]
         public string SourceType { get; set; }
     }
 }

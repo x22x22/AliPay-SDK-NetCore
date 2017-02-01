@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Domain
         /// 表示一行数据，每个对象是一列的数据
         /// </summary>
         [XmlElement("row_data")]
+		[JsonProperty("row_data", NullValueHandling = NullValueHandling.Ignore)]
         public string RowData { get; set; }
     }
 }

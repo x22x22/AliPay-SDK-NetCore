@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -28,12 +29,14 @@ namespace Aop.Api.Domain
         /// 券说明的标题
         /// </summary>
         [XmlElement("title")]
+		[JsonProperty("title", NullValueHandling = NullValueHandling.Ignore)]
         public string Title { get; set; }
 
         /// <summary>
         /// 券外部详情描述
         /// </summary>
         [XmlElement("url")]
+		[JsonProperty("url", NullValueHandling = NullValueHandling.Ignore)]
         public string Url { get; set; }
     }
 }

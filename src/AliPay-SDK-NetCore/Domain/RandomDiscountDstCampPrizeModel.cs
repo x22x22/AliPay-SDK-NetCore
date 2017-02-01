@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,6 +15,7 @@ namespace Aop.Api.Domain
         /// 折扣预算ID
         /// </summary>
         [XmlElement("budget_id")]
+		[JsonProperty("budget_id", NullValueHandling = NullValueHandling.Ignore)]
         public string BudgetId { get; set; }
 
         /// <summary>
@@ -27,12 +29,14 @@ namespace Aop.Api.Domain
         /// 奖品id
         /// </summary>
         [XmlElement("id")]
+		[JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
         public string Id { get; set; }
 
         /// <summary>
         /// 最高优惠金额=订单金额X(1-封顶折扣)  折扣幅度必须为0.3到1之间的小数(保留小数点后2位)
         /// </summary>
         [XmlElement("max_random_discount_rate")]
+		[JsonProperty("max_random_discount_rate", NullValueHandling = NullValueHandling.Ignore)]
         public string MaxRandomDiscountRate { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,6 +15,7 @@ namespace Aop.Api.Domain
         /// 每次上传物业费账单，都需要提供一个批次号。对于每一个合作伙伴，传递的每一个批次号都必须保证唯一性，同时对于批次号内的账单明细数据必须保证唯一性；  建议格式为：8位当天日期+流水号（3～24位，流水号可以接受数字或英文字符，建议使用数字）。
         /// </summary>
         [XmlElement("batch_id")]
+		[JsonProperty("batch_id", NullValueHandling = NullValueHandling.Ignore)]
         public string BatchId { get; set; }
 
         /// <summary>
@@ -27,6 +29,7 @@ namespace Aop.Api.Domain
         /// 支付宝社区小区统一编号，必须在物业账号名下存在。
         /// </summary>
         [XmlElement("community_id")]
+		[JsonProperty("community_id", NullValueHandling = NullValueHandling.Ignore)]
         public string CommunityId { get; set; }
     }
 }

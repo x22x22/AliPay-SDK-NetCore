@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,12 +15,14 @@ namespace Aop.Api.Domain
         /// 请求批次号，由商户自定义，在商户系统内唯一标示一次业务请求。
         /// </summary>
         [XmlElement("batch_id")]
+		[JsonProperty("batch_id", NullValueHandling = NullValueHandling.Ignore)]
         public string BatchId { get; set; }
 
         /// <summary>
         /// 业主所在物业小区ID(支付宝平台唯一小区ID标示)
         /// </summary>
         [XmlElement("community_id")]
+		[JsonProperty("community_id", NullValueHandling = NullValueHandling.Ignore)]
         public string CommunityId { get; set; }
 
         /// <summary>

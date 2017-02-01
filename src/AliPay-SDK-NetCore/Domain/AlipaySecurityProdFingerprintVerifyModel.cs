@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,12 +14,14 @@ namespace Aop.Api.Domain
         /// ifaf_message:校验阶段客户端返回的协议体数据，对应《IFAA本地免密技术规范》中的IFAFMessage，内容中包含客户端的校验数据。
         /// </summary>
         [XmlElement("ifaf_message")]
+		[JsonProperty("ifaf_message", NullValueHandling = NullValueHandling.Ignore)]
         public string IfafMessage { get; set; }
 
         /// <summary>
         /// 外部业务号，商户的业务单据号，用于核对与问题排查
         /// </summary>
         [XmlElement("out_biz_no")]
+		[JsonProperty("out_biz_no", NullValueHandling = NullValueHandling.Ignore)]
         public string OutBizNo { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,12 +15,14 @@ namespace Aop.Api.Domain
         /// 购买人群限制集合，开放平台暂时不支持此字段，如果需要使用，需要评估
         /// </summary>
         [XmlElement("buyer_crowd_limit")]
+		[JsonProperty("buyer_crowd_limit", NullValueHandling = NullValueHandling.Ignore)]
         public string BuyerCrowdLimit { get; set; }
 
         /// <summary>
         /// 商品单日销售上限
         /// </summary>
         [XmlElement("daily_sales_limit")]
+		[JsonProperty("daily_sales_limit", NullValueHandling = NullValueHandling.Ignore)]
         public long DailySalesLimit { get; set; }
 
         /// <summary>

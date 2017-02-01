@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,60 +15,70 @@ namespace Aop.Api.Domain
         /// 是否自动续期活动，默认为N,只有当对应营销工具券有效期为相对有效期时才能设置成Y
         /// </summary>
         [XmlElement("auto_delay_flag")]
+		[JsonProperty("auto_delay_flag", NullValueHandling = NullValueHandling.Ignore)]
         public string AutoDelayFlag { get; set; }
 
         /// <summary>
         /// 活动预算（当活动类型为GUESS_SEND且营销工具PromoTool的数量大于1时，即口令随机送活动，活动预算为空，每张券的预算数量落在SendRule里的send_budget）
         /// </summary>
         [XmlElement("budget_info")]
+		[JsonProperty("budget_info", NullValueHandling = NullValueHandling.Ignore)]
         public BudgetInfo BudgetInfo { get; set; }
 
         /// <summary>
         /// 活动限制信息
         /// </summary>
         [XmlElement("constraint_info")]
+		[JsonProperty("constraint_info", NullValueHandling = NullValueHandling.Ignore)]
         public ConstraintInfo ConstraintInfo { get; set; }
 
         /// <summary>
         /// 活动详细说明
         /// </summary>
         [XmlElement("desc")]
+		[JsonProperty("desc", NullValueHandling = NullValueHandling.Ignore)]
         public string Desc { get; set; }
 
         /// <summary>
         /// 活动结束时间
         /// </summary>
         [XmlElement("end_time")]
+		[JsonProperty("end_time", NullValueHandling = NullValueHandling.Ignore)]
         public string EndTime { get; set; }
 
         /// <summary>
         /// 活动的扩展信息，无需设置
         /// </summary>
         [XmlElement("ext_info")]
+		[JsonProperty("ext_info", NullValueHandling = NullValueHandling.Ignore)]
         public string ExtInfo { get; set; }
 
         /// <summary>
         /// 活动名称
         /// </summary>
         [XmlElement("name")]
+		[JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
         public string Name { get; set; }
 
         /// <summary>
         /// 操作人id，必须和operator_type配对出现，不填时默认是商户
         /// </summary>
         [XmlElement("operator_id")]
+		[JsonProperty("operator_id", NullValueHandling = NullValueHandling.Ignore)]
         public string OperatorId { get; set; }
 
         /// <summary>
         /// 操作人类型,有以下值可填：MER（外部商户），MER_OPERATOR（外部商户操作员），PROVIDER（外部服务商），PROVIDER_STAFF（外部服务商员工），默认不需要填这个字段，默认为MER
         /// </summary>
         [XmlElement("operator_type")]
+		[JsonProperty("operator_type", NullValueHandling = NullValueHandling.Ignore)]
         public string OperatorType { get; set; }
 
         /// <summary>
         /// 外部批次ID，同一owner创建活动需要换out_biz_no，控制幂等
         /// </summary>
         [XmlElement("out_biz_no")]
+		[JsonProperty("out_biz_no", NullValueHandling = NullValueHandling.Ignore)]
         public string OutBizNo { get; set; }
 
         /// <summary>
@@ -88,18 +99,21 @@ namespace Aop.Api.Domain
         /// 招商工具信息
         /// </summary>
         [XmlElement("recruit_tool")]
+		[JsonProperty("recruit_tool", NullValueHandling = NullValueHandling.Ignore)]
         public RecruitTool RecruitTool { get; set; }
 
         /// <summary>
         /// 活动开始时间
         /// </summary>
         [XmlElement("start_time")]
+		[JsonProperty("start_time", NullValueHandling = NullValueHandling.Ignore)]
         public string StartTime { get; set; }
 
         /// <summary>
         /// 活动类型，目前支持以下类型：  CONSUME_SEND：消费送活动  DIRECT_SEND：直发奖活动  REAL_TIME_SEND：实时立减类活动  GUESS_SEND：口令送  RECHARGE_SEND：充值送  POINT_SEND：集点卡活动
         /// </summary>
         [XmlElement("type")]
+		[JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
         public string Type { get; set; }
     }
 }

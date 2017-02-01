@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Domain
         /// 芝麻分
         /// </summary>
         [XmlElement("score")]
+		[JsonProperty("score", NullValueHandling = NullValueHandling.Ignore)]
         public long Score { get; set; }
     }
 }

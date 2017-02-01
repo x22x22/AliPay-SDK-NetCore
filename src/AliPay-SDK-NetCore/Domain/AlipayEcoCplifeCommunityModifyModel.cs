@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -21,18 +22,21 @@ namespace Aop.Api.Domain
         /// 地级市编码，国标码，详见国家统计局数据 <a href="http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/doc/2016.xls">点此下载</a>。
         /// </summary>
         [XmlElement("city_code")]
+		[JsonProperty("city_code", NullValueHandling = NullValueHandling.Ignore)]
         public string CityCode { get; set; }
 
         /// <summary>
         /// 小区主要详细地址，不需要包含省市区名称。
         /// </summary>
         [XmlElement("community_address")]
+		[JsonProperty("community_address", NullValueHandling = NullValueHandling.Ignore)]
         public string CommunityAddress { get; set; }
 
         /// <summary>
         /// 支付宝社区小区统一编号，必须在物业账号名下存在。
         /// </summary>
         [XmlElement("community_id")]
+		[JsonProperty("community_id", NullValueHandling = NullValueHandling.Ignore)]
         public string CommunityId { get; set; }
 
         /// <summary>
@@ -46,30 +50,35 @@ namespace Aop.Api.Domain
         /// 小区名称，最长不超过32个字符。
         /// </summary>
         [XmlElement("community_name")]
+		[JsonProperty("community_name", NullValueHandling = NullValueHandling.Ignore)]
         public string CommunityName { get; set; }
 
         /// <summary>
         /// 区县编码，国标码，详见国家统计局数据 <a href="http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/doc/2016.xls">点此下载</a>。
         /// </summary>
         [XmlElement("district_code")]
+		[JsonProperty("district_code", NullValueHandling = NullValueHandling.Ignore)]
         public string DistrictCode { get; set; }
 
         /// <summary>
         /// 需要提供物业服务热线或联系电话，便于用户在需要时联系物业。
         /// </summary>
         [XmlElement("hotline")]
+		[JsonProperty("hotline", NullValueHandling = NullValueHandling.Ignore)]
         public string Hotline { get; set; }
 
         /// <summary>
         /// 小区在物业系统中的唯一编号。
         /// </summary>
         [XmlElement("out_community_id")]
+		[JsonProperty("out_community_id", NullValueHandling = NullValueHandling.Ignore)]
         public string OutCommunityId { get; set; }
 
         /// <summary>
         /// 省份编码，国标码，详见国家统计局数据 <a href="http://aopsdkdownload.cn-hangzhou.alipay-pub.aliyun-inc.com/doc/2016.xls">点此下载</a>。
         /// </summary>
         [XmlElement("province_code")]
+		[JsonProperty("province_code", NullValueHandling = NullValueHandling.Ignore)]
         public string ProvinceCode { get; set; }
     }
 }

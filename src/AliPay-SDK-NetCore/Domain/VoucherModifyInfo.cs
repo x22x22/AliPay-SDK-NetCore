@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -21,18 +22,21 @@ namespace Aop.Api.Domain
         /// 描述信息
         /// </summary>
         [XmlElement("voucher_desc")]
+		[JsonProperty("voucher_desc", NullValueHandling = NullValueHandling.Ignore)]
         public string VoucherDesc { get; set; }
 
         /// <summary>
         /// 券id
         /// </summary>
         [XmlElement("voucher_id")]
+		[JsonProperty("voucher_id", NullValueHandling = NullValueHandling.Ignore)]
         public string VoucherId { get; set; }
 
         /// <summary>
         /// 券名称
         /// </summary>
         [XmlElement("voucher_name")]
+		[JsonProperty("voucher_name", NullValueHandling = NullValueHandling.Ignore)]
         public string VoucherName { get; set; }
 
         /// <summary>

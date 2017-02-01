@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Domain
         /// sdfghsgafds
         /// </summary>
         [XmlElement("wasfdasdf")]
+		[JsonProperty("wasfdasdf", NullValueHandling = NullValueHandling.Ignore)]
         public string Wasfdasdf { get; set; }
     }
 }

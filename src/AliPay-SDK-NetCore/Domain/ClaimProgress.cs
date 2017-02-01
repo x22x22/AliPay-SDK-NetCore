@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,12 +14,14 @@ namespace Aop.Api.Domain
         /// 更新内容
         /// </summary>
         [XmlElement("update_content")]
+		[JsonProperty("update_content", NullValueHandling = NullValueHandling.Ignore)]
         public string UpdateContent { get; set; }
 
         /// <summary>
         /// 更新时间
         /// </summary>
         [XmlElement("update_time")]
+		[JsonProperty("update_time", NullValueHandling = NullValueHandling.Ignore)]
         public string UpdateTime { get; set; }
     }
 }

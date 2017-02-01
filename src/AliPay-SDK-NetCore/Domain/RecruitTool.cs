@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,12 +15,14 @@ namespace Aop.Api.Domain
         /// 招商结束时间
         /// </summary>
         [XmlElement("end_time")]
+		[JsonProperty("end_time", NullValueHandling = NullValueHandling.Ignore)]
         public string EndTime { get; set; }
 
         /// <summary>
         /// 如果这个值是true,那么活动的参与门店不需要招商
         /// </summary>
         [XmlElement("exclude_constraint_shops")]
+		[JsonProperty("exclude_constraint_shops", NullValueHandling = NullValueHandling.Ignore)]
         public bool ExcludeConstraintShops { get; set; }
 
         /// <summary>
@@ -33,6 +36,7 @@ namespace Aop.Api.Domain
         /// 招商开始时间
         /// </summary>
         [XmlElement("start_time")]
+		[JsonProperty("start_time", NullValueHandling = NullValueHandling.Ignore)]
         public string StartTime { get; set; }
     }
 }

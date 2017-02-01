@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Domain
         /// 自定义报表规则条件信息
         /// </summary>
         [XmlElement("report_condition_info")]
+		[JsonProperty("report_condition_info", NullValueHandling = NullValueHandling.Ignore)]
         public CustomReportCondition ReportConditionInfo { get; set; }
     }
 }

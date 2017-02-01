@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Domain
         /// 车辆ID
         /// </summary>
         [XmlElement("vid")]
+		[JsonProperty("vid", NullValueHandling = NullValueHandling.Ignore)]
         public string Vid { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,12 +15,14 @@ namespace Aop.Api.Domain
         /// 业务卡号前缀，由商户自定义
         /// </summary>
         [XmlElement("biz_no_prefix")]
+		[JsonProperty("biz_no_prefix", NullValueHandling = NullValueHandling.Ignore)]
         public string BizNoPrefix { get; set; }
 
         /// <summary>
         /// 业务卡号后缀长度，最大int值不能超过32-biz_no_suffix长度
         /// </summary>
         [XmlElement("biz_no_suffix_len")]
+		[JsonProperty("biz_no_suffix_len", NullValueHandling = NullValueHandling.Ignore)]
         public string BizNoSuffixLen { get; set; }
 
         /// <summary>
@@ -33,6 +36,7 @@ namespace Aop.Api.Domain
         /// 卡类型为固定枚举类型，可选类型如下：  OUT_MEMBER_CARD：外部权益卡
         /// </summary>
         [XmlElement("card_type")]
+		[JsonProperty("card_type", NullValueHandling = NullValueHandling.Ignore)]
         public string CardType { get; set; }
 
         /// <summary>
@@ -53,6 +57,7 @@ namespace Aop.Api.Domain
         /// 会员卡用户领卡配置，在门店等渠道露出领卡入口时，需要部署的商户领卡H5页面地址
         /// </summary>
         [XmlElement("open_card_conf")]
+		[JsonProperty("open_card_conf", NullValueHandling = NullValueHandling.Ignore)]
         public TemplateOpenCardConfDTO OpenCardConf { get; set; }
 
         /// <summary>
@@ -66,6 +71,7 @@ namespace Aop.Api.Domain
         /// 请求ID，由开发者生成并保证唯一性
         /// </summary>
         [XmlElement("request_id")]
+		[JsonProperty("request_id", NullValueHandling = NullValueHandling.Ignore)]
         public string RequestId { get; set; }
 
         /// <summary>
@@ -93,12 +99,14 @@ namespace Aop.Api.Domain
         /// 模板样式信息
         /// </summary>
         [XmlElement("template_style_info")]
+		[JsonProperty("template_style_info", NullValueHandling = NullValueHandling.Ignore)]
         public TemplateStyleInfoDTO TemplateStyleInfo { get; set; }
 
         /// <summary>
         /// 卡包详情页面中展现出的卡码（可用于扫码核销）  qrcode: 二维码  dqrcode: 动态二维码  barcode: 条码  dbarcode: 动态条码  text: 文本
         /// </summary>
         [XmlElement("write_off_type")]
+		[JsonProperty("write_off_type", NullValueHandling = NullValueHandling.Ignore)]
         public string WriteOffType { get; set; }
     }
 }

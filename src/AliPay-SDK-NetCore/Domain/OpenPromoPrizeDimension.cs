@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,6 +15,7 @@ namespace Aop.Api.Domain
         /// 时间维度,  W：表示 周[1,4,5]  MIOD：表示 每天X分钟[0,1439]
         /// </summary>
         [XmlElement("dimension")]
+		[JsonProperty("dimension", NullValueHandling = NullValueHandling.Ignore)]
         public string Dimension { get; set; }
 
         /// <summary>

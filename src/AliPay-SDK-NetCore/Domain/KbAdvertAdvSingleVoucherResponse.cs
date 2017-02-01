@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -21,12 +22,14 @@ namespace Aop.Api.Domain
         /// 广告内容（广告内容请使用新的属性adv_content_list，此属性仍会保留）
         /// </summary>
         [XmlElement("content")]
+		[JsonProperty("content", NullValueHandling = NullValueHandling.Ignore)]
         public KbAdvertAdvContent Content { get; set; }
 
         /// <summary>
         /// 券标的
         /// </summary>
         [XmlElement("voucher")]
+		[JsonProperty("voucher", NullValueHandling = NullValueHandling.Ignore)]
         public KbAdvertSubjectVoucherResponse Voucher { get; set; }
     }
 }

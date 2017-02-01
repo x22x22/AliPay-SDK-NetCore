@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Domain
         /// 诊断结果CODE，目前有如下三个值  TRADE_RATE 流失会员占比高  USER_COUNT 会员数量少  REPAY_RATE 复购率低
         /// </summary>
         [XmlElement("diagnose_code")]
+		[JsonProperty("diagnose_code", NullValueHandling = NullValueHandling.Ignore)]
         public string DiagnoseCode { get; set; }
     }
 }

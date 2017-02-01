@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -21,12 +22,14 @@ namespace Aop.Api.Domain
         /// 当有风险时,为"T";无风险识别是为"F"
         /// </summary>
         [XmlElement("is_risk")]
+		[JsonProperty("is_risk", NullValueHandling = NullValueHandling.Ignore)]
         public string IsRisk { get; set; }
 
         /// <summary>
         /// 已废弃
         /// </summary>
         [XmlElement("risk_tag")]
+		[JsonProperty("risk_tag", NullValueHandling = NullValueHandling.Ignore)]
         public string RiskTag { get; set; }
     }
 }

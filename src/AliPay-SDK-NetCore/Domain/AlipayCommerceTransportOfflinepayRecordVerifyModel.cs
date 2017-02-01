@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Domain
         /// 原始脱机记录信息
         /// </summary>
         [XmlElement("record")]
+		[JsonProperty("record", NullValueHandling = NullValueHandling.Ignore)]
         public string Record { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,6 +15,7 @@ namespace Aop.Api.Domain
         /// 待删除的住户所在的小区ID(支付宝平台统一小区ID标识)
         /// </summary>
         [XmlElement("community_id")]
+		[JsonProperty("community_id", NullValueHandling = NullValueHandling.Ignore)]
         public string CommunityId { get; set; }
 
         /// <summary>

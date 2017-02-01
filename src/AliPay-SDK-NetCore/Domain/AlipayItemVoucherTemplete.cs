@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,6 +15,7 @@ namespace Aop.Api.Domain
         /// 延迟生效时间（手动领取条件下，可跟valid_period组合使用）
         /// </summary>
         [XmlElement("delay_minute")]
+		[JsonProperty("delay_minute", NullValueHandling = NullValueHandling.Ignore)]
         public long DelayMinute { get; set; }
 
         /// <summary>
@@ -27,12 +29,14 @@ namespace Aop.Api.Domain
         /// 折扣率，填写0-1间的小数且不包括0和1，如八折则传入0.8。（折扣券类型必选字段，代金券不需要）
         /// </summary>
         [XmlElement("discount_rate")]
+		[JsonProperty("discount_rate", NullValueHandling = NullValueHandling.Ignore)]
         public long DiscountRate { get; set; }
 
         /// <summary>
         /// 外部单品列表
         /// </summary>
         [XmlElement("external_goods_list")]
+		[JsonProperty("external_goods_list", NullValueHandling = NullValueHandling.Ignore)]
         public AlipayItemGoodsList ExternalGoodsList { get; set; }
 
         /// <summary>
@@ -46,60 +50,70 @@ namespace Aop.Api.Domain
         /// 商品原金额，单位（元），（代金券类型可选字段，折扣券不需要）
         /// </summary>
         [XmlElement("original_amount")]
+		[JsonProperty("original_amount", NullValueHandling = NullValueHandling.Ignore)]
         public long OriginalAmount { get; set; }
 
         /// <summary>
         /// 券原折扣,0-1之间，做展示使用（折扣券类型可选字段，代金券不需要）
         /// </summary>
         [XmlElement("original_rate")]
+		[JsonProperty("original_rate", NullValueHandling = NullValueHandling.Ignore)]
         public long OriginalRate { get; set; }
 
         /// <summary>
         /// 减至金额，单位（元），代表券可抵扣至多少（代金券类型可选字段，折扣券不需要）
         /// </summary>
         [XmlElement("reduce_to_amount")]
+		[JsonProperty("reduce_to_amount", NullValueHandling = NullValueHandling.Ignore)]
         public long ReduceToAmount { get; set; }
 
         /// <summary>
         /// 折扣金额取整规则  AUTO_ROUNDING_YUAN：自动抹零到元  AUTO_ROUNDING_JIAO：自动抹零到角  ROUNDING_UP_YUAN：四舍五入到元  ROUNDING_UP_JIAO：四舍五入到角
         /// </summary>
         [XmlElement("rounding_rule")]
+		[JsonProperty("rounding_rule", NullValueHandling = NullValueHandling.Ignore)]
         public string RoundingRule { get; set; }
 
         /// <summary>
         /// 起步金额，单位（元）
         /// </summary>
         [XmlElement("threshold_amount")]
+		[JsonProperty("threshold_amount", NullValueHandling = NullValueHandling.Ignore)]
         public long ThresholdAmount { get; set; }
 
         /// <summary>
         /// 起步数量，用于指定可享受优惠的起步单品购买数量
         /// </summary>
         [XmlElement("threshold_quantity")]
+		[JsonProperty("threshold_quantity", NullValueHandling = NullValueHandling.Ignore)]
         public long ThresholdQuantity { get; set; }
 
         /// <summary>
         /// 领券之后多长时间内可以核销，单位：分钟，传入数值需大于1440（一天）
         /// </summary>
         [XmlElement("valid_period")]
+		[JsonProperty("valid_period", NullValueHandling = NullValueHandling.Ignore)]
         public long ValidPeriod { get; set; }
 
         /// <summary>
         /// 价值金额，单位（元）  CASH类型为代金券金额  DISCOUNT类型为优惠封顶金额  在代金券类型时，value_amout与reduce_to_amount不能同时为空，不能同时不为空。
         /// </summary>
         [XmlElement("value_amount")]
+		[JsonProperty("value_amount", NullValueHandling = NullValueHandling.Ignore)]
         public long ValueAmount { get; set; }
 
         /// <summary>
         /// 券的描述信息，目前客户端将统一展示“折扣须知”
         /// </summary>
         [XmlElement("voucher_desc")]
+		[JsonProperty("voucher_desc", NullValueHandling = NullValueHandling.Ignore)]
         public string VoucherDesc { get; set; }
 
         /// <summary>
         /// 券类型，DISCOUNT（折扣券）、CASH（代金券）
         /// </summary>
         [XmlElement("voucher_type")]
+		[JsonProperty("voucher_type", NullValueHandling = NullValueHandling.Ignore)]
         public string VoucherType { get; set; }
     }
 }

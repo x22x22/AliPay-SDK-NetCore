@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Domain
         /// 如果是isv代操作，请传入ISV；如果是其他角色（商户MERCHANT、服务商PROVIDER、服务商员工S_STAFF、商户员工M_STAFF）操作，不用填写。
         /// </summary>
         [XmlElement("op_role")]
+		[JsonProperty("op_role", NullValueHandling = NullValueHandling.Ignore)]
         public string OpRole { get; set; }
     }
 }

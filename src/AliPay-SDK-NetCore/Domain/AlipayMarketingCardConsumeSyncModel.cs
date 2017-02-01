@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -14,12 +15,14 @@ namespace Aop.Api.Domain
         /// 用户实际付的现金金额  1.针对预付卡面额的核销金额在use_benefit_list展现，作为权益金额  2.权益金额不叠加在该金额上
         /// </summary>
         [XmlElement("act_pay_amount")]
+		[JsonProperty("act_pay_amount", NullValueHandling = NullValueHandling.Ignore)]
         public string ActPayAmount { get; set; }
 
         /// <summary>
         /// 卡信息（交易后的实际卡信息）
         /// </summary>
         [XmlElement("card_info")]
+		[JsonProperty("card_info", NullValueHandling = NullValueHandling.Ignore)]
         public MerchantCard CardInfo { get; set; }
 
         /// <summary>
@@ -33,60 +36,70 @@ namespace Aop.Api.Domain
         /// 备注信息，现有直接填写门店信息
         /// </summary>
         [XmlElement("memo")]
+		[JsonProperty("memo", NullValueHandling = NullValueHandling.Ignore)]
         public string Memo { get; set; }
 
         /// <summary>
         /// 门店编号
         /// </summary>
         [XmlElement("shop_code")]
+		[JsonProperty("shop_code", NullValueHandling = NullValueHandling.Ignore)]
         public string ShopCode { get; set; }
 
         /// <summary>
         /// 产生该笔交易时，用户出具的凭证类型  ALIPAY：支付宝电子卡  ENTITY：实体卡  OTHER：其他
         /// </summary>
         [XmlElement("swipe_cert_type")]
+		[JsonProperty("swipe_cert_type", NullValueHandling = NullValueHandling.Ignore)]
         public string SwipeCertType { get; set; }
 
         /// <summary>
         /// 支付宝业务卡号，开卡接口中返回获取
         /// </summary>
         [XmlElement("target_card_no")]
+		[JsonProperty("target_card_no", NullValueHandling = NullValueHandling.Ignore)]
         public string TargetCardNo { get; set; }
 
         /// <summary>
         /// 卡号类型  BIZ_CARD：支付宝业务卡号
         /// </summary>
         [XmlElement("target_card_no_type")]
+		[JsonProperty("target_card_no_type", NullValueHandling = NullValueHandling.Ignore)]
         public string TargetCardNoType { get; set; }
 
         /// <summary>
         /// 交易金额：本次交易的实际总金额（可认为标价金额）
         /// </summary>
         [XmlElement("trade_amount")]
+		[JsonProperty("trade_amount", NullValueHandling = NullValueHandling.Ignore)]
         public string TradeAmount { get; set; }
 
         /// <summary>
         /// 交易名称  为空时根据交易类型提供默认名称
         /// </summary>
         [XmlElement("trade_name")]
+		[JsonProperty("trade_name", NullValueHandling = NullValueHandling.Ignore)]
         public string TradeName { get; set; }
 
         /// <summary>
         /// 支付宝交易号
         /// </summary>
         [XmlElement("trade_no")]
+		[JsonProperty("trade_no", NullValueHandling = NullValueHandling.Ignore)]
         public string TradeNo { get; set; }
 
         /// <summary>
         /// 线下交易时间（是用户付款的交易时间）  当交易时间晚于上次消费记录同步时间，则会发生卡信息变更
         /// </summary>
         [XmlElement("trade_time")]
+		[JsonProperty("trade_time", NullValueHandling = NullValueHandling.Ignore)]
         public string TradeTime { get; set; }
 
         /// <summary>
         /// 交易类型  开卡：OPEN  消费：TRADE  充值：DEPOSIT  退卡：RETURN
         /// </summary>
         [XmlElement("trade_type")]
+		[JsonProperty("trade_type", NullValueHandling = NullValueHandling.Ignore)]
         public string TradeType { get; set; }
 
         /// <summary>

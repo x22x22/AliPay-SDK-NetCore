@@ -1,5 +1,6 @@
 using System;
 using System.Xml.Serialization;
+using Newtonsoft.Json;
 
 namespace Aop.Api.Domain
 {
@@ -13,6 +14,7 @@ namespace Aop.Api.Domain
         /// 芝麻分分段 Z0-Z7
         /// </summary>
         [XmlElement("zrank")]
+		[JsonProperty("zrank", NullValueHandling = NullValueHandling.Ignore)]
         public string Zrank { get; set; }
     }
 }
